@@ -250,12 +250,13 @@ const startServer = async () => {
     console.log('⚠️  Starting server without database connection...');
   }
 
-  const PORT = 5001;
+  const PORT = process.env.PORT || 5001;
   server.listen(PORT, () => {
     console.log(`🚀 Maiko EDU Server running on port ${PORT}`);
     console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`📊 Database: ${dbConnected ? 'Connected' : 'Not connected'}`);
     console.log('🔗 API Endpoints available:');
+    console.log('   - GET /api/test');
     console.log('   - POST /api/auth/register');
     console.log('   - POST /api/auth/login');
     console.log('   - GET /api/auth/me');

@@ -22,7 +22,36 @@ const StudentActivity = require('../models/StudentActivity');
 const CoursePayment = require('../models/CoursePayment');
 
 // Create completely clean Sequelize instance for PostgreSQL
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
+const databaseUrl = process.env.DATABASE_URL;
+
+if (!databaseUrl) {
+  console.error('❌ DATABASE_URL environment variable is not set');
+  console.log('Available environment variables:');
+  console.log('NODE_ENV:', process.env.NODE_ENV);
+  console.log('PORT:', process.env.PORT);
+  console.log('CLIENT_URL:', process.env.CLIENT_URL);
+  console.log('JWT_SECRET:', process.env.JWT_SECRET ? 'Set' : 'Not set');
+  
+  // For development, use a fallback
+  if (process.env.NODE_ENV !== 'production') {
+    console.log('⚠️  Using fallback database configuration for development');
+    const sequelize = new Sequelize({
+      dialect: 'sqlite',
+      storage: './database.sqlite',
+      logging: false,
+      define: {
+        freezeTableName: true,
+        underscored: false
+      }
+    });
+    module.exports = { sequelize, models: {}, testConnection: () => Promise.resolve(false) };
+    return;
+  } else {
+    throw new Error('DATABASE_URL is required for production deployment');
+  }
+}
+
+const sequelize = new Sequelize(databaseUrl, {
   dialect: 'postgres',
   logging: false,
   pool: {
@@ -32,7 +61,7 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
     idle: 10000
   },
   dialectOptions: {
-    ssl: false
+    ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
   },
   define: {
     freezeTableName: true,
