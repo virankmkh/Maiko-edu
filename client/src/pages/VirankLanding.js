@@ -345,16 +345,15 @@ const VirankLanding = () => {
                 <p className="text-xs font-semibold text-red-800 mb-1">Modules Clés :</p>
                 <p className="text-red-700 text-xs">Billetterie • Matchmaking • Contrôle d'accès • Gestion de contenu • Administration</p>
               </div>
-              <a 
-                href="/Eventcd/index.html" 
-                target="_blank"
+              <Link 
+                to="/eventcd" 
                 className="w-full inline-flex items-center justify-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition duration-300 text-sm"
               >
                 Découvrir EventCD
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

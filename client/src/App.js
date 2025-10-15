@@ -38,20 +38,23 @@ import CourseCreationTest from './pages/CourseCreationTest';
 import CoursePlayerDebug from './pages/CoursePlayerDebug';
 import DebugLoader from './components/DebugLoader';
 import VirankLanding from './pages/VirankLanding';
+import EventCDLanding from './pages/eventcd/EventCDLanding';
 
 // Wrapper component to conditionally render Navbar
 const AppContent = () => {
   const location = useLocation();
   const isVirankLanding = location.pathname === '/';
+  const isEventCD = location.pathname === '/eventcd';
   
   return (
     <div className="App flex flex-col min-h-screen">
       <DebugLoader />
-      {!isVirankLanding && <Navbar />}
+      {!isVirankLanding && !isEventCD && <Navbar />}
       <main className="flex-1">
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<VirankLanding />} />
+          <Route path="/eventcd" element={<EventCDLanding />} />
           <Route path="/maiko-edu" element={<Home />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/:id" element={<CourseDetail />} />
@@ -129,7 +132,7 @@ const AppContent = () => {
           } />
         </Routes>
       </main>
-      {!isVirankLanding && <Footer />}
+      {!isVirankLanding && !isEventCD && <Footer />}
       <Toaster 
         position="top-right"
         toastOptions={{
