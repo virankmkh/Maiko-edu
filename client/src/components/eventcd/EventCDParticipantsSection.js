@@ -4,8 +4,8 @@ const EventCDParticipantsSection = () => {
   const sampleEvents = [
     {
       id: 1,
-      title: "Tech Summit 2024",
-      date: "15-16 Mars 2024",
+      title: "Tech Summit 2026",
+      date: "15-16 Mars 2026",
       location: "Kinshasa, RDC",
       type: "Conférence",
       attendees: "500+ participants",
@@ -14,7 +14,7 @@ const EventCDParticipantsSection = () => {
     {
       id: 2,
       title: "Forum de l'Emploi",
-      date: "22 Mars 2024",
+      date: "22 Mars 2026",
       location: "Lubumbashi, RDC",
       type: "Salon",
       attendees: "200+ participants",
@@ -23,7 +23,7 @@ const EventCDParticipantsSection = () => {
     {
       id: 3,
       title: "Conférence Startup",
-      date: "5 Avril 2024",
+      date: "5 Avril 2026",
       location: "Goma, RDC",
       type: "Atelier",
       attendees: "150+ participants",
@@ -32,7 +32,7 @@ const EventCDParticipantsSection = () => {
     {
       id: 4,
       title: "Sommet B2B",
-      date: "12 Avril 2024",
+      date: "12 Avril 2026",
       location: "Kinshasa, RDC",
       type: "Sommet",
       attendees: "300+ participants",
@@ -55,7 +55,7 @@ const EventCDParticipantsSection = () => {
         {/* Features for Participants */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <div className="text-center">
-            <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">🔍</span>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Recherche Facile</h3>
@@ -65,7 +65,7 @@ const EventCDParticipantsSection = () => {
           </div>
           
           <div className="text-center">
-            <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">📱</span>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Expérience 100% Numérique</h3>
@@ -75,7 +75,7 @@ const EventCDParticipantsSection = () => {
           </div>
           
           <div className="text-center">
-            <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl">🌐</span>
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Diversité des Événements</h3>
@@ -103,12 +103,12 @@ const EventCDParticipantsSection = () => {
                       e.target.nextSibling.style.display = 'flex';
                     }}
                   />
-                  <div className="w-full h-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white text-4xl">
+                  <div className="w-full h-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white text-4xl">
                     🎯
                   </div>
                 </div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-semibold text-primary-600 bg-primary-100 px-2 py-1 rounded">
+                  <span className="text-xs font-semibold text-purple-600 bg-purple-100 px-2 py-1 rounded">
                     {event.type}
                   </span>
                   <span className="text-xs text-gray-500">{event.attendees}</span>
@@ -124,7 +124,7 @@ const EventCDParticipantsSection = () => {
                     {event.location}
                   </div>
                 </div>
-                <button className="w-full bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-primary-700 transition-all duration-300 transform hover:scale-105 text-sm">
+                <button className="w-full bg-purple-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 text-sm">
                   Voir Détails
                 </button>
               </div>
@@ -142,10 +142,10 @@ const EventCDParticipantsSection = () => {
               Créez votre profil participant et accédez à des événements exclusifs, du networking de qualité et des opportunités professionnelles.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+              <button className="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                 Créer un Compte
               </button>
-              <button className="bg-white text-primary-600 border-2 border-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition-all duration-300 transform hover:scale-105">
+              <button className="bg-white text-purple-600 border-2 border-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-all duration-300 transform hover:scale-105">
                 Explorer les Événements
               </button>
             </div>

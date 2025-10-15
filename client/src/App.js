@@ -46,6 +46,25 @@ const AppContent = () => {
   const isVirankLanding = location.pathname === '/';
   const isEventCD = location.pathname === '/eventcd';
   
+  // Update favicon based on current page
+  React.useEffect(() => {
+    const favicon = document.querySelector('link[rel="icon"]');
+    if (isEventCD) {
+      if (favicon) {
+        favicon.href = '/eventcd-favicon.png';
+      } else {
+        const link = document.createElement('link');
+        link.rel = 'icon';
+        link.href = '/eventcd-favicon.png';
+        document.head.appendChild(link);
+      }
+    } else {
+      if (favicon) {
+        favicon.href = '/favicon.ico';
+      }
+    }
+  }, [isEventCD]);
+  
   return (
     <div className="App flex flex-col min-h-screen">
       <DebugLoader />

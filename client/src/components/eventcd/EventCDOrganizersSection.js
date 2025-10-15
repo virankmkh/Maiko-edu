@@ -59,7 +59,7 @@ const EventCDOrganizersSection = () => {
               <div className="space-y-2">
                 {feature.details.map((detail, idx) => (
                   <div key={idx} className="flex items-center justify-center text-sm text-gray-500">
-                    <span className="w-2 h-2 bg-primary-500 rounded-full mr-2"></span>
+                    <span className="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
                     {detail}
                   </div>
                 ))}
@@ -70,7 +70,7 @@ const EventCDOrganizersSection = () => {
 
         {/* CTA for Organizers */}
         <div className="text-center mt-16">
-          <div className="bg-primary-50 rounded-2xl p-8 max-w-4xl mx-auto">
+          <div className="bg-purple-50 rounded-2xl p-8 max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Prêt à lancer votre premier événement ?
             </h3>
@@ -78,10 +78,10 @@ const EventCDOrganizersSection = () => {
               Créez votre compte organisateur et commencez à planifier votre événement en moins de 5 minutes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
+              <button className="bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                 Commencer Gratuitement
               </button>
-              <button className="bg-white text-primary-600 border-2 border-primary-600 px-6 py-3 rounded-lg font-semibold hover:bg-primary-50 transition-all duration-300 transform hover:scale-105">
+              <button className="bg-white text-purple-600 border-2 border-purple-600 px-6 py-3 rounded-lg font-semibold hover:bg-purple-50 transition-all duration-300 transform hover:scale-105">
                 Voir la Démo
               </button>
             </div>

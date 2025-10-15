@@ -20,7 +20,7 @@ const EventCDFooter = () => {
                 }}
               />
               <span className="text-xl font-bold" style={{display: 'none'}}>EventCD</span>
-              <span className="text-xl font-bold text-primary-400">EventCD</span>
+              <span className="text-xl font-bold text-purple-400">EventCD</span>
             </div>
             <p className="text-gray-400 mb-4">
               La plateforme complète pour organiser et participer à des événements professionnels.
