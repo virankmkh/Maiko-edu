@@ -283,6 +283,32 @@ const VirankLanding = () => {
                 </div>
               </div>
             </div>
+
+            {/* MAMA VIBE */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-orange-100 hover:border-orange-300">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl p-8 text-center order-2 md:order-1">
+                  <div className="text-6xl mb-4">👥</div>
+                  <p className="text-orange-700 font-semibold">En Développement</p>
+                </div>
+                <div className="order-1 md:order-2">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-orange-600 text-white rounded-lg px-4 py-2 text-sm font-semibold mr-4">
+                      PROJET 6
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">MAMA VIBE</h3>
+                  </div>
+                  <h4 className="text-xl font-semibold text-orange-600 mb-4">Le "Watch Guard" Citoyen et Hyperlocal</h4>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    Application mobile gratuite basée sur le crowdsourcing et l'IA. Elle permet aux citoyens de signaler en temps réel les situations critiques (électricité, eau, sécurité, trafic) dans leur quartier. L'IA filtre le bruit pour offrir un tableau de bord fiable et des alertes prédictives pour planifier sa journée.
+                  </p>
+                  <div className="bg-orange-50 rounded-lg p-4">
+                    <p className="text-sm font-semibold text-orange-800 mb-1">Notre Force IA :</p>
+                    <p className="text-orange-700">Modèles d'Analyse de Confiance et de Vérification de la Vérité pour garantir la fiabilité des données communautaires.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
