@@ -30,7 +30,7 @@ const VirankLanding = () => {
               <img 
                 src={virankLogo} 
                 alt="VIRANK Corp" 
-                className="h-10 w-auto mr-3"
+                className="h-1 w-auto mr-3"
               />
               <span className="text-xl font-bold text-gray-900">VIRANK Corp</span>
             </div>
@@ -392,7 +392,7 @@ const VirankLanding = () => {
                 <img 
                   src={virankLogo} 
                   alt="VIRANK Corp" 
-                  className="h-8 w-auto mr-3"
+                  className="h1 w-auto mr 1"
                 />
                 <span className="text-xl font-bold">VIRANK Corp</span>
               </div>
