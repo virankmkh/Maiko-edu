@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useLanguage } from '../context/LanguageContext';
 import { 
   BookOpen, 
   Users, 
@@ -69,7 +68,6 @@ const TypewriterText = ({ text, speed = 100, className = "" }) => {
 };
 
 const Home = () => {
-  const { t } = useLanguage();
   const [currentMessage, setCurrentMessage] = useState(0);
 
 
@@ -85,85 +83,85 @@ const Home = () => {
   const features = [
     {
       icon: BookOpen,
-      title: t('home.features.diverseLibrary.title'),
-      description: t('home.features.diverseLibrary.description')
+      title: 'Bibliothèque Diversifiée',
+      description: 'Accédez à des cours dans tous les domaines : programmation, design, marketing, business, et bien plus encore.'
     },
     {
       icon: Users,
-      title: t('home.features.expertInstructors.title'),
-      description: t('home.features.expertInstructors.description')
+      title: 'Instructeurs Experts',
+      description: 'Apprenez avec des professionnels expérimentés qui partagent leurs connaissances pratiques.'
     },
     {
       icon: Award,
-      title: t('home.features.industryCertifications.title'),
-      description: t('home.features.industryCertifications.description')
+      title: 'Certifications Professionnelles',
+      description: 'Obtenez des certificats reconnus qui valorisent vos compétences sur le marché du travail.'
     },
     {
       icon: Globe,
-      title: t('home.features.flexibleLearning.title'),
-      description: t('home.features.flexibleLearning.description')
+      title: 'Apprentissage Flexible',
+      description: 'Étudiez à votre rythme, où que vous soyez, avec un accès 24h/24 à nos cours.'
     }
   ];
 
   const courseCategories = [
     {
       icon: '💼',
-      title: t('home.courseCategories.business.title'),
-      count: t('home.courseCategories.business.count'),
-      description: t('home.courseCategories.business.description')
+      title: 'Business & Entrepreneuriat',
+      count: '25+ cours',
+      description: 'Développez vos compétences en gestion, marketing et leadership.'
     },
     {
       icon: '💻',
-      title: t('home.courseCategories.technology.title'),
-      count: t('home.courseCategories.technology.count'),
-      description: t('home.courseCategories.technology.description')
+      title: 'Technologie & Programmation',
+      count: '50+ cours',
+      description: 'Apprenez les langages de programmation et les technologies modernes.'
     },
     {
       icon: '🎨',
-      title: t('home.courseCategories.arts.title'),
-      count: t('home.courseCategories.arts.count'),
-      description: t('home.courseCategories.arts.description')
+      title: 'Design & Arts',
+      count: '20+ cours',
+      description: 'Explorez votre créativité avec le design graphique et les arts numériques.'
     },
     {
       icon: '🌍',
-      title: t('home.courseCategories.language.title'),
-      count: t('home.courseCategories.language.count'),
-      description: t('home.courseCategories.language.description')
+      title: 'Langues',
+      count: '15+ cours',
+      description: 'Maîtrisez de nouvelles langues pour élargir vos horizons.'
     },
     {
       icon: '🏥',
-      title: t('home.courseCategories.health.title'),
-      count: t('home.courseCategories.health.count'),
-      description: t('home.courseCategories.health.description')
+      title: 'Santé & Bien-être',
+      count: '12+ cours',
+      description: 'Prenez soin de votre santé physique et mentale.'
     },
     {
       icon: '🌟',
-      title: t('home.courseCategories.lifeSkills.title'),
-      count: t('home.courseCategories.lifeSkills.count'),
-      description: t('home.courseCategories.lifeSkills.description')
+      title: 'Compétences de Vie',
+      count: '18+ cours',
+      description: 'Développez vos compétences personnelles et professionnelles.'
     }
   ];
 
   const earningSteps = [
     {
       icon: UserPlus,
-      title: t('home.howToEarn.steps.step1.title'),
-      description: t('home.howToEarn.steps.step1.description')
+      title: 'Rejoignez le Programme',
+      description: 'Inscrivez-vous gratuitement et devenez membre de notre programme d\'affiliation.'
     },
     {
       icon: LinkIcon,
-      title: t('home.howToEarn.steps.step2.title'),
-      description: t('home.howToEarn.steps.step2.description')
+      title: 'Partagez vos Liens',
+      description: 'Obtenez vos liens d\'affiliation personnalisés pour chaque cours.'
     },
     {
       icon: Share2,
-      title: t('home.howToEarn.steps.step3.title'),
-      description: t('home.howToEarn.steps.step3.description')
+      title: 'Promouvez les Cours',
+      description: 'Partagez nos cours sur vos réseaux sociaux et avec votre entourage.'
     },
     {
       icon: TrendingUp,
-      title: t('home.howToEarn.steps.step4.title'),
-      description: t('home.howToEarn.steps.step4.description')
+      title: 'Gagnez des Commissions',
+      description: 'Recevez jusqu\'à 30% de commission sur chaque vente générée par vos liens.'
     }
   ];
 
