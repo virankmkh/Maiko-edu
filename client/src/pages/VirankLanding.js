@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import virankLogo from '../assets/virank-logo.png';
 
 const VirankLanding = () => {
   return (
@@ -26,9 +27,11 @@ const VirankLanding = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg mr-3 flex items-center justify-center">
-                <span className="text-white font-bold text-lg">V</span>
-              </div>
+              <img 
+                src={virankLogo} 
+                alt="VIRANK Corp" 
+                className="h-10 w-auto mr-3"
+              />
               <span className="text-xl font-bold text-gray-900">VIRANK Corp</span>
             </div>
             <div className="hidden md:block">
@@ -60,13 +63,6 @@ const VirankLanding = () => {
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="mb-8">
-              <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full mb-6 animate-float">
-                <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                </svg>
-              </div>
-            </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight transform hover:scale-105 transition-transform duration-300 animate-slideInUp">
               VIRANK CORP : L'IA Africaine qui Bâtit l'Avenir
             </h1>
@@ -393,9 +389,11 @@ const VirankLanding = () => {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg mr-3 flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">V</span>
-                </div>
+                <img 
+                  src={virankLogo} 
+                  alt="VIRANK Corp" 
+                  className="h-8 w-auto mr-3"
+                />
                 <span className="text-xl font-bold">VIRANK Corp</span>
               </div>
               <p className="text-gray-400">
