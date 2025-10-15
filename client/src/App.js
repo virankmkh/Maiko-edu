@@ -52,7 +52,7 @@ const AppContent = () => {
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<VirankLanding />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/maiko-edu" element={<Home />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/:id" element={<CourseDetail />} />
           <Route path="/about" element={<About />} />

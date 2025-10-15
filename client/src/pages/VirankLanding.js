@@ -178,7 +178,7 @@ const VirankLanding = () => {
                 <p className="text-primary-700 text-xs">Moteurs de recommandation basés sur l'IA pour un engagement maximal.</p>
               </div>
               <Link 
-                to="/home" 
+                to="/maiko-edu" 
                 className="w-full inline-flex items-center justify-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition duration-300 text-sm"
               >
                 Découvrir Maiko EDU

@@ -69,7 +69,7 @@ const Navbar = () => {
         { path: '/#projets', label: 'Nos Projets', icon: null },
         { path: '/#blog', label: 'Le Blog', icon: null },
         { path: '/#fondatrice', label: 'Notre Fondatrice', icon: null },
-        { path: '/home', label: 'Maiko EDU', icon: BookOpen },
+        { path: '/maiko-edu', label: 'Maiko EDU', icon: BookOpen },
       ];
     }
 
