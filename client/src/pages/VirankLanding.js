@@ -145,169 +145,173 @@ const VirankLanding = () => {
             </p>
           </div>
           
-          <div className="space-y-16">
+          <div className="grid lg:grid-cols-2 gap-8">
             {/* MAIKO EDU */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-primary-100 hover:border-primary-300">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <div className="flex items-center mb-4">
-                    <div className="bg-primary-600 text-white rounded-lg px-4 py-2 text-sm font-semibold mr-4">
+            <div className="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-primary-100 hover:border-primary-300">
+              <div className="text-center mb-6">
+                <div className="bg-gradient-to-br from-primary-100 to-primary-200 rounded-xl p-6 mb-4">
+                  <div className="text-5xl mb-2">📚</div>
+                  <div className="flex items-center justify-center mb-2">
+                    <div className="bg-primary-600 text-white rounded-lg px-3 py-1 text-sm font-semibold mr-3">
                       PROJET 1
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">MAIKO EDU</h3>
+                    <h3 className="text-xl font-bold text-gray-900">MAIKO EDU</h3>
                   </div>
-                  <h4 className="text-xl font-semibold text-primary-600 mb-4">Révolutionner l'Éducation</h4>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    Notre plateforme d'e-learning de nouvelle génération. Nous utilisons l'IA pour créer des parcours d'apprentissage adaptatifs basés sur les besoins individuels, réduisant l'écart entre le talent congolais et les opportunités mondiales. Maiko Edu n'enseigne pas seulement ; il personnalise l'ascension.
-                  </p>
-                  <div className="bg-primary-50 rounded-lg p-4">
-                    <p className="text-sm font-semibold text-primary-800 mb-1">Notre Force IA :</p>
-                    <p className="text-primary-700">Moteurs de recommandation basés sur l'IA pour un engagement maximal.</p>
-                  </div>
-                </div>
-                <div className="bg-gradient-to-br from-primary-100 to-primary-200 rounded-xl p-8 text-center">
-                  <div className="text-6xl mb-4">📚</div>
-                  <Link 
-                    to="/home" 
-                    className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition duration-300"
-                  >
-                    Découvrir Maiko EDU
-                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </Link>
+                  <p className="text-primary-700 font-semibold">Plateforme Active</p>
                 </div>
               </div>
+              <h4 className="text-lg font-semibold text-primary-600 mb-3">Révolutionner l'Éducation</h4>
+              <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                Notre plateforme d'e-learning de nouvelle génération. Nous utilisons l'IA pour créer des parcours d'apprentissage adaptatifs basés sur les besoins individuels, réduisant l'écart entre le talent congolais et les opportunités mondiales.
+              </p>
+              <div className="bg-primary-50 rounded-lg p-3 mb-4">
+                <p className="text-xs font-semibold text-primary-800 mb-1">Notre Force IA :</p>
+                <p className="text-primary-700 text-xs">Moteurs de recommandation basés sur l'IA pour un engagement maximal.</p>
+              </div>
+              <Link 
+                to="/home" 
+                className="w-full inline-flex items-center justify-center px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition duration-300 text-sm"
+              >
+                Découvrir Maiko EDU
+                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </Link>
             </div>
 
             {/* MAIKO CHECK */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-secondary-100 hover:border-secondary-300">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="bg-gradient-to-br from-secondary-100 to-secondary-200 rounded-xl p-8 text-center order-2 md:order-1">
-                  <div className="text-6xl mb-4">🔍</div>
-                  <p className="text-secondary-700 font-semibold">En Développement</p>
-                </div>
-                <div className="order-1 md:order-2">
-                  <div className="flex items-center mb-4">
-                    <div className="bg-secondary-600 text-white rounded-lg px-4 py-2 text-sm font-semibold mr-4">
+            <div className="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-secondary-100 hover:border-secondary-300">
+              <div className="text-center mb-6">
+                <div className="bg-gradient-to-br from-secondary-100 to-secondary-200 rounded-xl p-6 mb-4">
+                  <div className="text-5xl mb-2">🔍</div>
+                  <div className="flex items-center justify-center mb-2">
+                    <div className="bg-secondary-600 text-white rounded-lg px-3 py-1 text-sm font-semibold mr-3">
                       PROJET 2
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">MAIKO CHECK</h3>
+                    <h3 className="text-xl font-bold text-gray-900">MAIKO CHECK</h3>
                   </div>
-                  <h4 className="text-xl font-semibold text-secondary-600 mb-4">L'Authenticité Éducative</h4>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    Face à la montée en puissance de l'IA générative, nous lançons Maiko Check. Cet outil utilise des algorithmes sophistiqués pour analyser et authentifier tous les types de productions étudiantes, qu'il s'agisse d'évaluations, de devoirs, de dissertations ou de travaux de fin d'études. Nous déterminons si le contenu a été généré par une IA ou rédigé par l'étudiant lui-même. C'est l'outil indispensable pour garantir l'intégrité académique dans l'ère numérique, du secondaire à l'université.
-                  </p>
-                  <div className="bg-secondary-50 rounded-lg p-4">
-                    <p className="text-sm font-semibold text-secondary-800 mb-1">Notre Force IA :</p>
-                    <p className="text-secondary-700">Modèles de Traitement du Langage Naturel (TAL) spécialisés dans la détection de patterns de génération de texte et d'originalité stylistique.</p>
-                  </div>
+                  <p className="text-secondary-700 font-semibold">En Développement</p>
                 </div>
               </div>
+              <h4 className="text-lg font-semibold text-secondary-600 mb-3">L'Authenticité Éducative</h4>
+              <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                Face à la montée en puissance de l'IA générative, nous lançons Maiko Check. Cet outil utilise des algorithmes sophistiqués pour analyser et authentifier tous les types de productions étudiantes.
+              </p>
+              <div className="bg-secondary-50 rounded-lg p-3 mb-4">
+                <p className="text-xs font-semibold text-secondary-800 mb-1">Notre Force IA :</p>
+                <p className="text-secondary-700 text-xs">Modèles de TAL spécialisés dans la détection de patterns de génération de texte.</p>
+              </div>
+              <button className="w-full px-4 py-2 border border-secondary-600 text-secondary-600 rounded-lg hover:bg-secondary-50 transition duration-300 text-sm">
+                Bientôt Disponible
+              </button>
             </div>
 
             {/* MOBEKO AI */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-accent-100 hover:border-accent-300">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <div className="flex items-center mb-4">
-                    <div className="bg-accent-600 text-white rounded-lg px-4 py-2 text-sm font-semibold mr-4">
+            <div className="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-accent-100 hover:border-accent-300">
+              <div className="text-center mb-6">
+                <div className="bg-gradient-to-br from-accent-100 to-accent-200 rounded-xl p-6 mb-4">
+                  <div className="text-5xl mb-2">⚖️</div>
+                  <div className="flex items-center justify-center mb-2">
+                    <div className="bg-accent-600 text-white rounded-lg px-3 py-1 text-sm font-semibold mr-3">
                       PROJET 3
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">MOBEKO AI</h3>
+                    <h3 className="text-xl font-bold text-gray-900">MOBEKO AI</h3>
                   </div>
-                  <h4 className="text-xl font-semibold text-accent-600 mb-4">L'IA au Service du Droit Congolais</h4>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    Un modèle d'aide à la décision juridique de pointe, spécifiquement formé sur la législation, la jurisprudence et la doctrine de la RDC. Mobeko AI évalue les chances de succès d'un procès, guide l'avocat sur la meilleure stratégie à adopter, l'aide à la rédaction de conclusions (plaidoyers) et à l'anticipation des arguments adverses. C'est l'assistant ultime pour l'optimisation des procédures judiciaires.
-                  </p>
-                  <div className="bg-accent-50 rounded-lg p-4">
-                    <p className="text-sm font-semibold text-accent-800 mb-1">Notre Force IA :</p>
-                    <p className="text-accent-700">Modèles de TAL avancés pour l'analyse prédictive et la génération de documents juridiques contextualisés au droit congolais.</p>
-                  </div>
-                </div>
-                <div className="bg-gradient-to-br from-accent-100 to-accent-200 rounded-xl p-8 text-center">
-                  <div className="text-6xl mb-4">⚖️</div>
                   <p className="text-accent-700 font-semibold">En Développement</p>
                 </div>
               </div>
+              <h4 className="text-lg font-semibold text-accent-600 mb-3">L'IA au Service du Droit Congolais</h4>
+              <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                Un modèle d'aide à la décision juridique de pointe, spécifiquement formé sur la législation, la jurisprudence et la doctrine de la RDC. Mobeko AI évalue les chances de succès d'un procès.
+              </p>
+              <div className="bg-accent-50 rounded-lg p-3 mb-4">
+                <p className="text-xs font-semibold text-accent-800 mb-1">Notre Force IA :</p>
+                <p className="text-accent-700 text-xs">Modèles de TAL avancés pour l'analyse prédictive et la génération de documents juridiques.</p>
+              </div>
+              <button className="w-full px-4 py-2 border border-accent-600 text-accent-600 rounded-lg hover:bg-accent-50 transition duration-300 text-sm">
+                Bientôt Disponible
+              </button>
             </div>
 
             {/* DIGIT KIN */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-purple-100 hover:border-purple-300">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl p-8 text-center order-2 md:order-1">
-                  <div className="text-6xl mb-4">🌐</div>
-                  <p className="text-purple-700 font-semibold">En Développement</p>
-                </div>
-                <div className="order-1 md:order-2">
-                  <div className="flex items-center mb-4">
-                    <div className="bg-purple-600 text-white rounded-lg px-4 py-2 text-sm font-semibold mr-4">
+            <div className="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-purple-100 hover:border-purple-300">
+              <div className="text-center mb-6">
+                <div className="bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl p-6 mb-4">
+                  <div className="text-5xl mb-2">🌐</div>
+                  <div className="flex items-center justify-center mb-2">
+                    <div className="bg-purple-600 text-white rounded-lg px-3 py-1 text-sm font-semibold mr-3">
                       PROJET 4
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">DIGIT KIN</h3>
+                    <h3 className="text-xl font-bold text-gray-900">DIGIT KIN</h3>
                   </div>
-                  <h4 className="text-xl font-semibold text-purple-600 mb-4">La Présence Web en Moins d'Une Minute</h4>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    La numérisation est simplifiée. Digit Kin est une plateforme de création de sites web instantanée et assistée par IA. L'utilisateur n'a qu'à décrire son entreprise, fournir son logo et quelques informations clés, et notre IA génère automatiquement un site web complet, hébergé et prêt à l'emploi. Nous offrons également la possibilité d'obtenir un nom de domaine personnalisé. C'est la solution idéale pour donner une vitrine professionnelle immédiate aux entreprises locales.
-                  </p>
-                  <div className="bg-purple-50 rounded-lg p-4">
-                    <p className="text-sm font-semibold text-purple-800 mb-1">Notre Force IA :</p>
-                    <p className="text-purple-700">Moteurs de génération de contenu (texte, structure) et de design assisté pour une mise en ligne en quelques clics.</p>
-                  </div>
+                  <p className="text-purple-700 font-semibold">En Développement</p>
                 </div>
               </div>
+              <h4 className="text-lg font-semibold text-purple-600 mb-3">La Présence Web en Moins d'Une Minute</h4>
+              <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                La numérisation est simplifiée. Digit Kin est une plateforme de création de sites web instantanée et assistée par IA. L'utilisateur n'a qu'à décrire son entreprise et notre IA génère automatiquement un site web complet.
+              </p>
+              <div className="bg-purple-50 rounded-lg p-3 mb-4">
+                <p className="text-xs font-semibold text-purple-800 mb-1">Notre Force IA :</p>
+                <p className="text-purple-700 text-xs">Moteurs de génération de contenu et de design assisté pour une mise en ligne en quelques clics.</p>
+              </div>
+              <button className="w-full px-4 py-2 border border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 transition duration-300 text-sm">
+                Bientôt Disponible
+              </button>
             </div>
 
             {/* KASH AI */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-green-100 hover:border-green-300">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <div className="flex items-center mb-4">
-                    <div className="bg-green-600 text-white rounded-lg px-4 py-2 text-sm font-semibold mr-4">
+            <div className="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-green-100 hover:border-green-300">
+              <div className="text-center mb-6">
+                <div className="bg-gradient-to-br from-green-100 to-green-200 rounded-xl p-6 mb-4">
+                  <div className="text-5xl mb-2">💰</div>
+                  <div className="flex items-center justify-center mb-2">
+                    <div className="bg-green-600 text-white rounded-lg px-3 py-1 text-sm font-semibold mr-3">
                       PROJET 5
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">KASH AI</h3>
+                    <h3 className="text-xl font-bold text-gray-900">KASH AI</h3>
                   </div>
-                  <h4 className="text-xl font-semibold text-green-600 mb-4">La Comptabilité Intelligente</h4>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    Kash AI est l'assistant de comptabilité pour les PME. Fini la saisie manuelle : notre solution utilise l'IA pour catégoriser automatiquement les dépenses et les revenus, analyser les flux de trésorerie et effectuer des prévisions financières. Cet outil aide les entrepreneurs à obtenir une visibilité instantanée sur la santé financière de leur entreprise, garantissant une meilleure gestion et une croissance éclairée, en conformité avec les standards locaux.
-                  </p>
-                  <div className="bg-green-50 rounded-lg p-4">
-                    <p className="text-sm font-semibold text-green-800 mb-1">Notre Force IA :</p>
-                    <p className="text-green-700">Modèles de Machine Learning pour la classification des transactions et l'analyse prédictive de la trésorerie.</p>
-                  </div>
-                </div>
-                <div className="bg-gradient-to-br from-green-100 to-green-200 rounded-xl p-8 text-center">
-                  <div className="text-6xl mb-4">💰</div>
                   <p className="text-green-700 font-semibold">En Développement</p>
                 </div>
               </div>
+              <h4 className="text-lg font-semibold text-green-600 mb-3">La Comptabilité Intelligente</h4>
+              <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                Kash AI est l'assistant de comptabilité pour les PME. Fini la saisie manuelle : notre solution utilise l'IA pour catégoriser automatiquement les dépenses et les revenus, analyser les flux de trésorerie.
+              </p>
+              <div className="bg-green-50 rounded-lg p-3 mb-4">
+                <p className="text-xs font-semibold text-green-800 mb-1">Notre Force IA :</p>
+                <p className="text-green-700 text-xs">Modèles de Machine Learning pour la classification des transactions et l'analyse prédictive.</p>
+              </div>
+              <button className="w-full px-4 py-2 border border-green-600 text-green-600 rounded-lg hover:bg-green-50 transition duration-300 text-sm">
+                Bientôt Disponible
+              </button>
             </div>
 
             {/* MAMA VIBE */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-orange-100 hover:border-orange-300">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl p-8 text-center order-2 md:order-1">
-                  <div className="text-6xl mb-4">👥</div>
-                  <p className="text-orange-700 font-semibold">En Développement</p>
-                </div>
-                <div className="order-1 md:order-2">
-                  <div className="flex items-center mb-4">
-                    <div className="bg-orange-600 text-white rounded-lg px-4 py-2 text-sm font-semibold mr-4">
+            <div className="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-orange-100 hover:border-orange-300">
+              <div className="text-center mb-6">
+                <div className="bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl p-6 mb-4">
+                  <div className="text-5xl mb-2">👥</div>
+                  <div className="flex items-center justify-center mb-2">
+                    <div className="bg-orange-600 text-white rounded-lg px-3 py-1 text-sm font-semibold mr-3">
                       PROJET 6
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">MAMA VIBE</h3>
+                    <h3 className="text-xl font-bold text-gray-900">MAMA VIBE</h3>
                   </div>
-                  <h4 className="text-xl font-semibold text-orange-600 mb-4">Le "Watch Guard" Citoyen et Hyperlocal</h4>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    Application mobile gratuite basée sur le crowdsourcing et l'IA. Elle permet aux citoyens de signaler en temps réel les situations critiques (électricité, eau, sécurité, trafic) dans leur quartier. L'IA filtre le bruit pour offrir un tableau de bord fiable et des alertes prédictives pour planifier sa journée.
-                  </p>
-                  <div className="bg-orange-50 rounded-lg p-4">
-                    <p className="text-sm font-semibold text-orange-800 mb-1">Notre Force IA :</p>
-                    <p className="text-orange-700">Modèles d'Analyse de Confiance et de Vérification de la Vérité pour garantir la fiabilité des données communautaires.</p>
-                  </div>
+                  <p className="text-orange-700 font-semibold">En Développement</p>
                 </div>
               </div>
+              <h4 className="text-lg font-semibold text-orange-600 mb-3">Le "Watch Guard" Citoyen et Hyperlocal</h4>
+              <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                Application mobile gratuite basée sur le crowdsourcing et l'IA. Elle permet aux citoyens de signaler en temps réel les situations critiques dans leur quartier.
+              </p>
+              <div className="bg-orange-50 rounded-lg p-3 mb-4">
+                <p className="text-xs font-semibold text-orange-800 mb-1">Notre Force IA :</p>
+                <p className="text-orange-700 text-xs">Modèles d'Analyse de Confiance et de Vérification de la Vérité pour garantir la fiabilité des données.</p>
+              </div>
+              <button className="w-full px-4 py-2 border border-orange-600 text-orange-600 rounded-lg hover:bg-orange-50 transition duration-300 text-sm">
+                Bientôt Disponible
+              </button>
             </div>
           </div>
         </div>
@@ -387,7 +391,7 @@ const VirankLanding = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Vira NEEMA : La Garante de notre Excellence et de notre Vision
+              Notre Fondatrice : La Garante de notre Excellence et de notre Vision
             </h2>
           </div>
           
@@ -395,18 +399,18 @@ const VirankLanding = () => {
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12">
               <div className="text-center mb-8">
                 <div className="w-32 h-32 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <span className="text-4xl font-bold text-white">VN</span>
+                  <span className="text-4xl font-bold text-white">V</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-2">Vira NEEMA</h3>
-                <p className="text-primary-200 text-lg">Fondatrice & CEO, Virank Corp</p>
+                <h3 className="text-2xl font-bold mb-2">Notre Fondatrice</h3>
+                <p className="text-primary-200 text-lg">CEO & Visionnaire, Virank Corp</p>
               </div>
               
               <div className="prose prose-lg mx-auto text-gray-200">
                 <p className="text-xl leading-relaxed mb-6">
-                  Virank Corp est propulsée par la vision de Vira NEEMA, Ingénieure IA congolaise. Son parcours exceptionnel, couronné par un MSc de Data Science et IA à Goldsmiths, University of London et ses recherches doctorales en cours, est notre gage d'excellence.
+                  Virank Corp est propulsée par la vision d'une Ingénieure IA congolaise d'exception. Son parcours remarquable, couronné par un MSc de Data Science et IA à Goldsmiths, University of London et ses recherches doctorales en cours, est notre gage d'excellence.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  Vira insuffle dans chaque projet une double expertise : la rigueur académique et l'innovation de pointe (AI & ML) pour les marchés mondiaux, couplée à une compréhension intime des besoins et des opportunités spécifiques en RDC et en Afrique. Son leadership assure que nos solutions sont à la fois sophistiquées et ancrées dans la réalité.
+                  Notre fondatrice insuffle dans chaque projet une double expertise : la rigueur académique et l'innovation de pointe (AI & ML) pour les marchés mondiaux, couplée à une compréhension intime des besoins et des opportunités spécifiques en RDC et en Afrique. Son leadership assure que nos solutions sont à la fois sophistiquées et ancrées dans la réalité.
                 </p>
               </div>
               
@@ -500,5 +504,7 @@ const VirankLanding = () => {
     </div>
   );
 };
+
+export default VirankLanding;
 
 export default VirankLanding;
