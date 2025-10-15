@@ -18,7 +18,7 @@ import {
 
 // Import the logo
 import logoImage from '../../assets/Maiko logo.png';
-import virankLogo from '/virank-logo.png';
+import virankLogo from '../../assets/virank-logo.png';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

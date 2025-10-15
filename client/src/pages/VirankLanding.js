@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import virankLogo from '../assets/virank-logo.png';
 
 const VirankLanding = () => {
   return (
@@ -10,7 +11,7 @@ const VirankLanding = () => {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <img 
-                src="/virank-logo.png" 
+                src={virankLogo} 
                 alt="VIRANK Corp" 
                 className="h-10 w-auto mr-3"
               />
@@ -362,7 +363,7 @@ const VirankLanding = () => {
             <div>
               <div className="flex items-center mb-4">
                 <img 
-                  src="/virank-logo.png" 
+                  src={virankLogo} 
                   alt="VIRANK Corp" 
                   className="h-8 w-auto mr-3"
                 />
