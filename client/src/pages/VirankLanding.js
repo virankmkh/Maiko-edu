@@ -506,5 +506,3 @@ const VirankLanding = () => {
 };
 
 export default VirankLanding;
-
-export default VirankLanding;
