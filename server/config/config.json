@@ -1,0 +1,27 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "password",
+    "database": "maiko_edu",
+    "host": "localhost",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "password",
+    "database": "maiko_edu_test",
+    "host": "localhost",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "password",
+    "database": "maiko_edu",
+    "host": "localhost",
+    "port": 5432,
+    "dialect": "postgres"
+  }
+}
+

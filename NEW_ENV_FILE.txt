@@ -1,0 +1,110 @@
+# ===========================================
+# Maiko EDU - Environment Configuration
+# ===========================================
+
+# Server Configuration
+PORT=5001
+NODE_ENV=development
+
+# Database Configuration (PostgreSQL)
+DATABASE_URL=postgresql://postgres:Esther07082015@localhost:5432/maiko_edu
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=maiko_edu
+DB_USER=postgres
+DB_PASSWORD=Esther07082015
+
+# JWT Configuration
+JWT_SECRET=maiko_edu_super_secret_jwt_key_2025_change_in_production
+JWT_EXPIRES_IN=7d
+JWT_REFRESH_SECRET=maiko_edu_refresh_secret_key_2025_change_in_production
+JWT_REFRESH_EXPIRES_IN=30d
+
+# Client Configuration
+CLIENT_URL=http://localhost:3000
+FRONTEND_URL=http://localhost:3000
+
+# Email Configuration (for notifications and verification)
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_SECURE=false
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-app-password
+EMAIL_FROM=noreply@maikoedu.com
+EMAIL_FROM_NAME=Maiko EDU
+
+# File Upload Configuration
+MAX_FILE_SIZE=52428800
+UPLOAD_PATH=./server/uploads
+CERTIFICATES_PATH=./server/certificates
+ALLOWED_FILE_TYPES=pdf,doc,docx,jpg,jpeg,png,mp4,avi,mov
+
+# Security Configuration
+BCRYPT_ROUNDS=12
+SESSION_SECRET=maiko_edu_session_secret_2025_change_in_production
+CORS_ORIGIN=http://localhost:3000
+
+# Rate Limiting
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+
+# Payment Configuration (for future implementation)
+PAYPAL_CLIENT_ID=your_paypal_client_id
+PAYPAL_CLIENT_SECRET=your_paypal_client_secret
+PAYPAL_MODE=sandbox
+
+# Orange Money DRC Configuration (for future implementation)
+ORANGE_MONEY_MERCHANT_ID=your_orange_money_merchant_id
+ORANGE_MONEY_MERCHANT_KEY=your_orange_money_merchant_key
+ORANGE_MONEY_MERCHANT_SECRET=your_orange_money_merchant_secret
+
+# Vodacom M-Pesa DRC Configuration (for future implementation)
+VODACOM_MPESA_CONSUMER_KEY=your_vodacom_consumer_key
+VODACOM_MPESA_CONSUMER_SECRET=your_vodacom_consumer_secret
+VODACOM_MPESA_SHORTCODE=your_vodacom_shortcode
+VODACOM_MPESA_PASSKEY=your_vodacom_passkey
+
+# Affiliate Configuration
+AFFILIATE_COMMISSION_RATE=10
+ORGANIZATION_COMMISSION_RATE=40
+MINIMUM_WITHDRAWAL_AMOUNT=50
+
+# Course Configuration
+MAX_COURSE_DURATION=1440
+MAX_COURSE_PRICE=1000
+MIN_COURSE_PRICE=5
+DEFAULT_CURRENCY=USD
+
+# Logging Configuration
+LOG_LEVEL=info
+LOG_FILE=./logs/maiko_edu.log
+
+# Redis Configuration (for future caching)
+REDIS_URL=redis://localhost:6379
+REDIS_PASSWORD=
+
+# Monitoring Configuration
+SENTRY_DSN=your_sentry_dsn_here
+GOOGLE_ANALYTICS_ID=your_google_analytics_id
+
+# Development Tools
+DEBUG=maiko_edu:*
+NODE_OPTIONS=--max-old-space-size=4096
+
+# Jitsi Configuration
+REACT_APP_JITSI_DOMAIN=meet.jit.si
+
+# Custom Analytics Configuration
+ANALYTICS_ENABLED=true
+ANALYTICS_RETENTION_DAYS=365
+ANALYTICS_BATCH_SIZE=100
+
+# ===========================================
+# IMPORTANT NOTES:
+# ===========================================
+# 1. Change all passwords and secrets in production
+# 2. Use environment-specific values for different deployments
+# 3. Never commit this file to version control
+# 4. Use a proper secret management system in production
+# 5. Regularly rotate JWT secrets and passwords
+# ===========================================
