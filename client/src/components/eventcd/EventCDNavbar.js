@@ -39,7 +39,7 @@ const EventCDNavbar = () => {
 
           {/* CTA Buttons */}
           <div className="flex items-center space-x-4">
-            <Link to="/login" className="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+            <Link to="/eventcd/login" className="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
               Connexion
             </Link>
             <button className="bg-purple-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">

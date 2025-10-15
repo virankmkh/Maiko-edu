@@ -39,12 +39,14 @@ import CoursePlayerDebug from './pages/CoursePlayerDebug';
 import DebugLoader from './components/DebugLoader';
 import VirankLanding from './pages/VirankLanding';
 import EventCDLanding from './pages/eventcd/EventCDLanding';
+import OrganizerLogin from './pages/eventcd/OrganizerLogin';
+import OrganizerRegister from './pages/eventcd/OrganizerRegister';
 
 // Wrapper component to conditionally render Navbar
 const AppContent = () => {
   const location = useLocation();
   const isVirankLanding = location.pathname === '/';
-  const isEventCD = location.pathname === '/eventcd';
+  const isEventCD = location.pathname.startsWith('/eventcd');
   
   // Update favicon based on current page
   React.useEffect(() => {
@@ -74,6 +76,8 @@ const AppContent = () => {
           {/* Public Routes */}
           <Route path="/" element={<VirankLanding />} />
           <Route path="/eventcd" element={<EventCDLanding />} />
+          <Route path="/eventcd/login" element={<OrganizerLogin />} />
+          <Route path="/eventcd/register" element={<OrganizerRegister />} />
           <Route path="/maiko-edu" element={<Home />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/:id" element={<CourseDetail />} />

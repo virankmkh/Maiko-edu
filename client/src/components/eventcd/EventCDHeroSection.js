@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const EventCDHeroSection = () => {
   return (
@@ -25,9 +26,12 @@ const EventCDHeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <button className="bg-white text-purple-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl animate-glow w-full sm:w-auto">
+            <Link 
+              to="/eventcd/register"
+              className="bg-white text-purple-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl animate-glow w-full sm:w-auto inline-flex items-center justify-center"
+            >
               🎯 Publier un Événement
-            </button>
+            </Link>
             <button className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-purple-600 transition-all duration-300 transform hover:scale-105 w-full sm:w-auto">
               🔍 Trouver un Événement
             </button>

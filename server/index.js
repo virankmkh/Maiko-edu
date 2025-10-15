@@ -28,6 +28,9 @@ try {
   const authRoutes = require('./routes/auth');
   console.log('✅ Auth routes loaded');
   
+  const organizerAuthRoutes = require('./routes/organizerAuth');
+  console.log('✅ Organizer Auth routes loaded');
+  
   const courseRoutes = require('./routes/courses');
   console.log('✅ Course routes loaded');
   
@@ -155,6 +158,8 @@ app.get('/api/auth/test', (req, res) => {
 console.log('🔧 Registering routes...');
 app.use('/api/auth', require('./routes/auth'));
 console.log('✅ Auth routes registered');
+app.use('/api/organizer-auth', require('./routes/organizerAuth'));
+console.log('✅ Organizer Auth routes registered');
 app.use('/api/courses', require('./routes/courses'));
 console.log('✅ Course routes registered');
 app.use('/api/users', require('./routes/users'));
