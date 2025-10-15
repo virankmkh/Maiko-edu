@@ -57,14 +57,14 @@ const VirankLanding = () => {
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight transform hover:scale-105 transition-transform duration-300 animate-slideInUp">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight transform hover:scale-105 transition-transform duration-300 animate-slideInUp text-white">
               VIRANK CORP : L'IA Africaine qui Bâtit l'Avenir
             </h1>
             <p className="text-xl md:text-2xl mb-4 font-light animate-float text-cyan-200">
               Audace. Innovation. Impact.
             </p>
-            <p className="text-lg md:text-xl mb-8 max-w-4xl mx-auto leading-relaxed">
-              Fondée par Vira NEEMA, Ingénieure IA congolaise (MSc Goldsmiths, UoL), nous transformons les défis de la RDC en solutions d'Intelligence Artificielle à l'échelle mondiale.
+            <p className="text-lg md:text-xl mb-8 max-w-4xl mx-auto leading-relaxed text-white">
+              Nous développons des solutions d'IA innovantes et stratégiques pour transformer l'Éducation, la Santé et la Finance en Afrique, de la RDC au monde.
             </p>
             <a 
               href="#projets"
@@ -84,47 +84,50 @@ const VirankLanding = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Pourquoi Virank Corp ? L'Expertise au Service de la Transformation
+              Notre Mission : Catalyser le Progrès par l'IA
             </h2>
           </div>
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg mx-auto text-gray-600">
               <p className="text-xl leading-relaxed mb-6">
-                Chez Virank Corp, nous ne faisons pas que coder l'avenir ; nous le co-créons. Née de la passion de Vira NEEMA pour le potentiel inexploité du continent, notre mission est claire :
+                Virank Corp est la force motrice derrière une nouvelle vague d'innovation technologique africaine. Notre mission est simple : utiliser le potentiel de l'Intelligence Artificielle pour relever les défis socio-économiques et créer des systèmes durables.
               </p>
-              <div className="grid md:grid-cols-3 gap-8 mt-12">
-                <div className="text-center">
-                  <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
+              <p className="text-lg leading-relaxed mb-8">
+                Nous combinons une expertise mondiale en IA avec une connaissance approfondie du terrain. Nous ne nous contentons pas d'appliquer la technologie ; nous la concevons pour qu'elle soit pertinente, impactante et accessible.
+              </p>
+              <div className="bg-gray-50 rounded-xl p-8 mb-8">
+                <h3 className="text-xl font-semibold text-gray-900 mb-6 text-center">L'impact que nous créons :</h3>
+                <div className="grid md:grid-cols-3 gap-8">
+                  <div className="text-center">
+                    <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      </svg>
+                    </div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">Démocratisation de la Connaissance</h4>
+                    <p className="text-gray-600">(via MAIKO EDU)</p>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Démocratiser la Connaissance</h3>
-                  <p className="text-gray-600">par l'e-learning intelligent</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                    </svg>
+                  <div className="text-center">
+                    <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">Amélioration des Services Essentiels</h4>
+                    <p className="text-gray-600">Santé, Finance, Agri</p>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Optimiser les Secteurs Clés</h3>
-                  <p className="text-gray-600">Santé, Finance, Agri grâce à l'IA</p>
-                </div>
-                <div className="text-center">
-                  <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
+                  <div className="text-center">
+                    <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-2">Établissement d'un Pôle d'Excellence</h4>
+                    <p className="text-gray-600">Tech Africain</p>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Établir Kinshasa</h3>
-                  <p className="text-gray-600">comme pôle d'excellence technologique global</p>
                 </div>
               </div>
-              <p className="text-lg leading-relaxed mt-8 text-gray-700">
-                Nous combinons la rigueur académique internationale de l'Université de Londres avec une compréhension intime des besoins locaux pour garantir un impact réel et mesurable.
-              </p>
             </div>
           </div>
         </div>
@@ -165,7 +168,7 @@ const VirankLanding = () => {
                 <div className="bg-gradient-to-br from-primary-100 to-primary-200 rounded-xl p-8 text-center">
                   <div className="text-6xl mb-4">📚</div>
                   <Link 
-                    to="/login" 
+                    to="/home" 
                     className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition duration-300"
                   >
                     Découvrir Maiko EDU
@@ -177,11 +180,11 @@ const VirankLanding = () => {
               </div>
             </div>
 
-            {/* KIVU VISION */}
+            {/* MAIKO CHECK */}
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-secondary-100 hover:border-secondary-300">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="bg-gradient-to-br from-secondary-100 to-secondary-200 rounded-xl p-8 text-center order-2 md:order-1">
-                  <div className="text-6xl mb-4">🏥</div>
+                  <div className="text-6xl mb-4">🔍</div>
                   <p className="text-secondary-700 font-semibold">En Développement</p>
                 </div>
                 <div className="order-1 md:order-2">
@@ -189,21 +192,21 @@ const VirankLanding = () => {
                     <div className="bg-secondary-600 text-white rounded-lg px-4 py-2 text-sm font-semibold mr-4">
                       PROJET 2
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">KIVU VISION</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">MAIKO CHECK</h3>
                   </div>
-                  <h4 className="text-xl font-semibold text-secondary-600 mb-4">Diagnostic de Santé Précis et Mobile</h4>
+                  <h4 className="text-xl font-semibold text-secondary-600 mb-4">L'Authenticité Éducative</h4>
                   <p className="text-gray-600 mb-6 leading-relaxed">
-                    Un projet d'IA et santé qui vise à démocratiser le diagnostic médical. En exploitant l'apprentissage profond pour l'analyse d'images (rayons X, microscopie), Kivu Vision apporte des capacités diagnostiques de pointe directement dans les cliniques rurales et les zones à faible ressource.
+                    Face à la montée en puissance de l'IA générative, nous lançons Maiko Check. Cet outil utilise des algorithmes sophistiqués pour analyser et authentifier tous les types de productions étudiantes, qu'il s'agisse d'évaluations, de devoirs, de dissertations ou de travaux de fin d'études. Nous déterminons si le contenu a été généré par une IA ou rédigé par l'étudiant lui-même. C'est l'outil indispensable pour garantir l'intégrité académique dans l'ère numérique, du secondaire à l'université.
                   </p>
                   <div className="bg-secondary-50 rounded-lg p-4">
                     <p className="text-sm font-semibold text-secondary-800 mb-1">Notre Force IA :</p>
-                    <p className="text-secondary-700">Modèles légers, optimisés pour un déploiement sur mobile et hors ligne.</p>
+                    <p className="text-secondary-700">Modèles de Traitement du Langage Naturel (TAL) spécialisés dans la détection de patterns de génération de texte et d'originalité stylistique.</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* ZOLA FINTECH */}
+            {/* MOBEKO AI */}
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-accent-100 hover:border-accent-300">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
@@ -211,20 +214,72 @@ const VirankLanding = () => {
                     <div className="bg-accent-600 text-white rounded-lg px-4 py-2 text-sm font-semibold mr-4">
                       PROJET 3
                     </div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">ZOLA FINTECH</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">MOBEKO AI</h3>
                   </div>
-                  <h4 className="text-xl font-semibold text-accent-600 mb-4">La Finance 100% Inclusive</h4>
+                  <h4 className="text-xl font-semibold text-accent-600 mb-4">L'IA au Service du Droit Congolais</h4>
                   <p className="text-gray-600 mb-6 leading-relaxed">
-                    Une solution de microcrédit et d'évaluation de risque ciblant la majorité non bancarisée. Zola Fintech utilise l'analyse de données alternatives et des algorithmes de Machine Learning transparents pour accorder des financements équitables, ouvrant la voie à l'entrepreneuriat à la base.
+                    Un modèle d'aide à la décision juridique de pointe, spécifiquement formé sur la législation, la jurisprudence et la doctrine de la RDC. Mobeko AI évalue les chances de succès d'un procès, guide l'avocat sur la meilleure stratégie à adopter, l'aide à la rédaction de conclusions (plaidoyers) et à l'anticipation des arguments adverses. C'est l'assistant ultime pour l'optimisation des procédures judiciaires.
                   </p>
                   <div className="bg-accent-50 rounded-lg p-4">
                     <p className="text-sm font-semibold text-accent-800 mb-1">Notre Force IA :</p>
-                    <p className="text-accent-700">Algorithmes d'Explicabilité (XAI) pour une confiance totale dans l'évaluation de crédit.</p>
+                    <p className="text-accent-700">Modèles de TAL avancés pour l'analyse prédictive et la génération de documents juridiques contextualisés au droit congolais.</p>
                   </div>
                 </div>
                 <div className="bg-gradient-to-br from-accent-100 to-accent-200 rounded-xl p-8 text-center">
-                  <div className="text-6xl mb-4">💰</div>
+                  <div className="text-6xl mb-4">⚖️</div>
                   <p className="text-accent-700 font-semibold">En Développement</p>
+                </div>
+              </div>
+            </div>
+
+            {/* DIGIT KIN */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-purple-100 hover:border-purple-300">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl p-8 text-center order-2 md:order-1">
+                  <div className="text-6xl mb-4">🌐</div>
+                  <p className="text-purple-700 font-semibold">En Développement</p>
+                </div>
+                <div className="order-1 md:order-2">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-purple-600 text-white rounded-lg px-4 py-2 text-sm font-semibold mr-4">
+                      PROJET 4
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">DIGIT KIN</h3>
+                  </div>
+                  <h4 className="text-xl font-semibold text-purple-600 mb-4">La Présence Web en Moins d'Une Minute</h4>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    La numérisation est simplifiée. Digit Kin est une plateforme de création de sites web instantanée et assistée par IA. L'utilisateur n'a qu'à décrire son entreprise, fournir son logo et quelques informations clés, et notre IA génère automatiquement un site web complet, hébergé et prêt à l'emploi. Nous offrons également la possibilité d'obtenir un nom de domaine personnalisé. C'est la solution idéale pour donner une vitrine professionnelle immédiate aux entreprises locales.
+                  </p>
+                  <div className="bg-purple-50 rounded-lg p-4">
+                    <p className="text-sm font-semibold text-purple-800 mb-1">Notre Force IA :</p>
+                    <p className="text-purple-700">Moteurs de génération de contenu (texte, structure) et de design assisté pour une mise en ligne en quelques clics.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* KASH AI */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-green-100 hover:border-green-300">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <div className="flex items-center mb-4">
+                    <div className="bg-green-600 text-white rounded-lg px-4 py-2 text-sm font-semibold mr-4">
+                      PROJET 5
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">KASH AI</h3>
+                  </div>
+                  <h4 className="text-xl font-semibold text-green-600 mb-4">La Comptabilité Intelligente</h4>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    Kash AI est l'assistant de comptabilité pour les PME. Fini la saisie manuelle : notre solution utilise l'IA pour catégoriser automatiquement les dépenses et les revenus, analyser les flux de trésorerie et effectuer des prévisions financières. Cet outil aide les entrepreneurs à obtenir une visibilité instantanée sur la santé financière de leur entreprise, garantissant une meilleure gestion et une croissance éclairée, en conformité avec les standards locaux.
+                  </p>
+                  <div className="bg-green-50 rounded-lg p-4">
+                    <p className="text-sm font-semibold text-green-800 mb-1">Notre Force IA :</p>
+                    <p className="text-green-700">Modèles de Machine Learning pour la classification des transactions et l'analyse prédictive de la trésorerie.</p>
+                  </div>
+                </div>
+                <div className="bg-gradient-to-br from-green-100 to-green-200 rounded-xl p-8 text-center">
+                  <div className="text-6xl mb-4">💰</div>
+                  <p className="text-green-700 font-semibold">En Développement</p>
                 </div>
               </div>
             </div>
@@ -232,15 +287,15 @@ const VirankLanding = () => {
         </div>
       </section>
 
-      {/* Section 4: Le Blog */}
+      {/* Section 4: Le VIRANK HUB */}
       <section id="blog" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Le Tech Blog Virank : Le Hub d'Information Tech de la RDC
+              Le VIRANK HUB : Communauté & Média Tech RDC
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Plus qu'un simple blog, c'est la plateforme de référence pour décrypter l'innovation technologique en République Démocratique du Congo.
+              Le Virank Hub est la plateforme centrale de l'écosystème technologique en RDC et au-delà.
             </p>
           </div>
           
@@ -248,12 +303,12 @@ const VirankLanding = () => {
             <div className="bg-gray-50 rounded-xl p-8 text-center">
               <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Vos Articles</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Communauté des Développeurs</h3>
               <p className="text-gray-600">
-                Plongez dans la recherche de Vira NEEMA (IA, éthique, entrepreneuriat). Des analyses de doctorante pour comprendre les enjeux techniques et stratégiques de demain.
+                Un espace d'échange pour les experts et les passionnés. Rencontrez d'autres développeurs, discutez des défis techniques, collaborez sur des projets open-source et faites progresser vos compétences.
               </p>
             </div>
             
@@ -263,21 +318,21 @@ const VirankLanding = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Nouvelles RDC</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Le Tech Blog Virank</h3>
               <p className="text-gray-600">
-                Nous sommes la source incontournable pour les actualités tech congolaises. Annonces de startups, tendances du marché, politiques numériques...
+                Le média de référence pour les actualités tech congolaises et l'analyse de pointe sur l'IA. Publiez vos propres articles ou plongez dans les recherches des leaders du secteur.
               </p>
             </div>
             
             <div className="bg-gray-50 rounded-xl p-8 text-center">
               <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Communauté Virank</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Partage de Connaissances</h3>
               <p className="text-gray-600">
-                Rejoignez nos discussions pour connecter les développeurs, les investisseurs et les leaders d'opinion.
+                Le Virank Hub est votre lieu de rencontre, de partage de connaissances et de publication pour façonner l'avenir technologique congolais.
               </p>
             </div>
           </div>
@@ -285,13 +340,13 @@ const VirankLanding = () => {
           <div className="text-center">
             <div className="space-x-4">
               <button className="inline-flex items-center px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition duration-300">
-                Lire le Blog
+                Rejoindre la Communauté
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </button>
               <button className="inline-flex items-center px-6 py-3 border border-primary-600 text-primary-600 rounded-lg hover:bg-primary-50 transition duration-300">
-                Proposer un Article (Tech RDC)
+                Publier un Article
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
@@ -306,7 +361,7 @@ const VirankLanding = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Vira NEEMA : De l'Excellence Académique à l'Action
+              Vira NEEMA : La Garante de notre Excellence et de notre Vision
             </h2>
           </div>
           
@@ -322,10 +377,10 @@ const VirankLanding = () => {
               
               <div className="prose prose-lg mx-auto text-gray-200">
                 <p className="text-xl leading-relaxed mb-6">
-                  Vira NEEMA est la preuve vivante du potentiel technologique africain. Diplômée en MSc de Data Science et IA à Goldsmiths, University of London et chercheuse doctorale en IA, elle insuffle dans chaque projet une double expertise : la connaissance des systèmes mondiaux et l'engagement envers le développement local.
+                  Virank Corp est propulsée par la vision de Vira NEEMA, Ingénieure IA congolaise. Son parcours exceptionnel, couronné par un MSc de Data Science et IA à Goldsmiths, University of London et ses recherches doctorales en cours, est notre gage d'excellence.
                 </p>
                 <p className="text-lg leading-relaxed">
-                  Virank Corp est l'incarnation de sa conviction : la RDC est prête à diriger la prochaine vague d'innovation mondiale.
+                  Vira insuffle dans chaque projet une double expertise : la rigueur académique et l'innovation de pointe (AI & ML) pour les marchés mondiaux, couplée à une compréhension intime des besoins et des opportunités spécifiques en RDC et en Afrique. Son leadership assure que nos solutions sont à la fois sophistiquées et ancrées dans la réalité.
                 </p>
               </div>
               
@@ -339,11 +394,11 @@ const VirankLanding = () => {
                   </ul>
                 </div>
                 <div className="bg-white/5 rounded-lg p-6">
-                  <h4 className="text-lg font-semibold mb-3 text-primary-300">Vision</h4>
+                  <h4 className="text-lg font-semibold mb-3 text-primary-300">Leadership</h4>
                   <ul className="space-y-2 text-gray-300">
-                    <li>• Transformer la RDC en hub technologique</li>
-                    <li>• Démocratiser l'accès à l'IA en Afrique</li>
-                    <li>• Créer un écosystème tech inclusif</li>
+                    <li>• Rigueur académique internationale</li>
+                    <li>• Innovation de pointe pour les marchés mondiaux</li>
+                    <li>• Compréhension intime des besoins africains</li>
                   </ul>
                 </div>
               </div>
