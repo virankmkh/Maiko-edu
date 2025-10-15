@@ -18,7 +18,6 @@ import {
 
 // Import the logo
 import logoImage from '../../assets/Maiko logo.png';
-import virankLogo from '../../assets/virank-logo.png';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -145,8 +144,8 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
               <img 
-                src={location.pathname === '/' ? virankLogo : logoImage} 
-                alt={location.pathname === '/' ? "VIRANK Corp" : "Maiko"} 
+                src={logoImage} 
+                alt="Maiko" 
                 className="h-30 w-30 object-contain"
                 onError={(e) => {
                   // Fallback to public folder if import fails
