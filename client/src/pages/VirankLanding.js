@@ -154,7 +154,7 @@ const VirankLanding = () => {
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {/* MAIKO EDU */}
             <div className="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-primary-100 hover:border-primary-300">
               <div className="text-center mb-6">
@@ -319,6 +319,33 @@ const VirankLanding = () => {
                 <p className="text-orange-700 text-xs">Modèles d'Analyse de Confiance et de Vérification de la Vérité pour garantir la fiabilité des données.</p>
               </div>
               <button className="w-full px-4 py-2 border border-orange-600 text-orange-600 rounded-lg hover:bg-orange-50 transition duration-300 text-sm">
+                Bientôt Disponible
+              </button>
+            </div>
+
+            {/* EVENTS CD */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-red-100 hover:border-red-300">
+              <div className="text-center mb-6">
+                <div className="bg-gradient-to-br from-red-100 to-red-200 rounded-xl p-6 mb-4">
+                  <div className="text-5xl mb-2">🎫</div>
+                  <div className="flex items-center justify-center mb-2">
+                    <div className="bg-red-600 text-white rounded-lg px-3 py-1 text-sm font-semibold mr-3">
+                      PROJET 7
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900">EVENTS CD</h3>
+                  </div>
+                  <p className="text-red-700 font-semibold">En Développement</p>
+                </div>
+              </div>
+              <h4 className="text-lg font-semibold text-red-600 mb-3">Plateforme Complète de Gestion d'Événements</h4>
+              <p className="text-gray-600 mb-4 leading-relaxed text-sm">
+                Solution intégrée pour l'organisation d'événements professionnels avec billetterie, matchmaking B2B/B2G, contrôle d'accès, et gestion complète des participants. Parfait pour les sommets, conférences et événements d'envergure.
+              </p>
+              <div className="bg-red-50 rounded-lg p-3 mb-4">
+                <p className="text-xs font-semibold text-red-800 mb-1">Modules Clés :</p>
+                <p className="text-red-700 text-xs">Billetterie • Matchmaking • Contrôle d'accès • Gestion de contenu • Administration</p>
+              </div>
+              <button className="w-full px-4 py-2 border border-red-600 text-red-600 rounded-lg hover:bg-red-50 transition duration-300 text-sm">
                 Bientôt Disponible
               </button>
             </div>
