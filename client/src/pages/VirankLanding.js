@@ -5,8 +5,25 @@ import virankLogo from '../assets/virank-logo.png';
 const VirankLanding = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        @keyframes glow {
+          0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+          50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6); }
+        }
+        @keyframes slideInUp {
+          from { transform: translateY(30px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-glow { animation: glow 2s ease-in-out infinite; }
+        .animate-slideInUp { animation: slideInUp 0.6s ease-out; }
+      `}</style>
       {/* Navigation */}
-      <nav className="bg-white shadow-lg sticky top-0 z-50">
+      <nav className="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
@@ -19,11 +36,11 @@ const VirankLanding = () => {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <a href="#vision" className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">Notre Vision</a>
-                <a href="#projets" className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">Nos Projets</a>
-                <a href="#blog" className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">Le Blog</a>
-                <a href="#fondatrice" className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">Notre Fondatrice</a>
-                <Link to="/login" className="bg-primary-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700">
+                <a href="#vision" className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-primary-50">Notre Vision</a>
+                <a href="#projets" className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-primary-50">Nos Projets</a>
+                <a href="#blog" className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-primary-50">Le Blog</a>
+                <a href="#fondatrice" className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 hover:bg-primary-50">Notre Fondatrice</a>
+                <Link to="/login" className="bg-primary-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
                   Maiko EDU
                 </Link>
               </div>
@@ -33,13 +50,20 @@ const VirankLanding = () => {
       </nav>
 
       {/* Section 1: Bannière Principale */}
-      <section className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white py-20">
+      <section className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 text-white py-20 relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-primary-400 rounded-full opacity-20 animate-pulse"></div>
+          <div className="absolute top-32 right-20 w-16 h-16 bg-primary-300 rounded-full opacity-30 animate-bounce"></div>
+          <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-primary-500 rounded-full opacity-25 animate-ping"></div>
+          <div className="absolute bottom-32 right-1/3 w-8 h-8 bg-primary-200 rounded-full opacity-40 animate-pulse"></div>
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight transform hover:scale-105 transition-transform duration-300 animate-slideInUp">
               VIRANK CORP : L'IA Africaine qui Bâtit l'Avenir
             </h1>
-            <p className="text-xl md:text-2xl mb-4 font-light">
+            <p className="text-xl md:text-2xl mb-4 font-light animate-float">
               Audace. Innovation. Impact.
             </p>
             <p className="text-lg md:text-xl mb-8 max-w-4xl mx-auto leading-relaxed">
@@ -47,7 +71,7 @@ const VirankLanding = () => {
             </p>
             <a 
               href="#projets"
-              className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-primary-700 bg-white hover:bg-gray-50 transition duration-300 transform hover:scale-105"
+              className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-primary-700 bg-white hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-white/25 animate-glow"
             >
               Voir nos Solutions Révolutionnaires
               <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -123,7 +147,7 @@ const VirankLanding = () => {
           
           <div className="space-y-16">
             {/* MAIKO EDU */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-primary-100 hover:border-primary-300">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
                   <div className="flex items-center mb-4">
@@ -157,7 +181,7 @@ const VirankLanding = () => {
             </div>
 
             {/* KIVU VISION */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-secondary-100 hover:border-secondary-300">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div className="bg-gradient-to-br from-secondary-100 to-secondary-200 rounded-xl p-8 text-center order-2 md:order-1">
                   <div className="text-6xl mb-4">🏥</div>
@@ -183,7 +207,7 @@ const VirankLanding = () => {
             </div>
 
             {/* ZOLA FINTECH */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 transform hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-accent-100 hover:border-accent-300">
               <div className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
                   <div className="flex items-center mb-4">
