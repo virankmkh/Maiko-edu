@@ -1,0 +1,56 @@
+services:
+  - type: web
+    name: maiko-edu-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        fromDatabase:
+          name: maiko-edu-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        value: https://your-frontend-url.vercel.app
+      - key: CORS_ORIGIN
+        value: https://your-frontend-url.vercel.app
+      - key: PAYPAL_CLIENT_ID
+        value: your-paypal-client-id
+      - key: PAYPAL_CLIENT_SECRET
+        value: your-paypal-client-secret
+      - key: PAYPAL_MODE
+        value: live
+      - key: JITSI_APP_ID
+        value: your-jitsi-app-id
+      - key: JITSI_PRIVATE_KEY
+        value: your-jitsi-private-key
+      - key: H5P_LIBRARY_PATH
+        value: /h5p/libraries
+      - key: H5P_CONTENT_PATH
+        value: /h5p/content
+      - key: H5P_TEMP_PATH
+        value: /h5p/temp
+      - key: MATOMO_URL
+        value: https://your-matomo-instance.com
+      - key: MATOMO_SITE_ID
+        value: 1
+      - key: MAX_FILE_SIZE
+        value: 10485760
+      - key: UPLOAD_PATH
+        value: ./uploads
+      - key: RATE_LIMIT_WINDOW
+        value: 900000
+      - key: RATE_LIMIT_MAX
+        value: 100
+
+databases:
+  - name: maiko-edu-db
+    plan: free
+    databaseName: maiko_edu
+    user: maiko_user
