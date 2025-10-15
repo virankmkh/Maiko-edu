@@ -37,6 +37,7 @@ import H5PTest from './components/H5PTest';
 import CourseCreationTest from './pages/CourseCreationTest';
 import CoursePlayerDebug from './pages/CoursePlayerDebug';
 import DebugLoader from './components/DebugLoader';
+import VirankLanding from './pages/VirankLanding';
 
 function App() {
   return (
@@ -50,7 +51,8 @@ function App() {
               <main className="flex-1">
                 <Routes>
                   {/* Public Routes */}
-                  <Route path="/" element={<Home />} />
+                  <Route path="/" element={<VirankLanding />} />
+                  <Route path="/home" element={<Home />} />
                   <Route path="/courses" element={<Courses />} />
                   <Route path="/courses/:id" element={<CourseDetail />} />
                   <Route path="/about" element={<About />} />

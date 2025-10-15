@@ -18,6 +18,7 @@ import {
 
 // Import the logo
 import logoImage from '../../assets/Maiko logo.png';
+import virankLogo from '/virank-logo.png';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -62,6 +63,17 @@ const Navbar = () => {
   };
 
   const getNavItems = () => {
+    // If on VIRANK landing page, show VIRANK-specific navigation
+    if (location.pathname === '/') {
+      return [
+        { path: '/#vision', label: 'Notre Vision', icon: null },
+        { path: '/#projets', label: 'Nos Projets', icon: null },
+        { path: '/#blog', label: 'Le Blog', icon: null },
+        { path: '/#fondatrice', label: 'Notre Fondatrice', icon: null },
+        { path: '/home', label: 'Maiko EDU', icon: BookOpen },
+      ];
+    }
+
     const baseItems = [
       { path: '/', label: t('navigation.home'), icon: null },
       { path: '/about', label: t('navigation.about'), icon: null },
@@ -133,8 +145,8 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
               <img 
-                src={logoImage} 
-                alt="Maiko" 
+                src={location.pathname === '/' ? virankLogo : logoImage} 
+                alt={location.pathname === '/' ? "VIRANK Corp" : "Maiko"} 
                 className="h-30 w-30 object-contain"
                 onError={(e) => {
                   // Fallback to public folder if import fails
