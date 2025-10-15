@@ -26,7 +26,16 @@ const VirankLanding = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <span className="text-xl font-bold text-gray-900">VIRANK Corp</span>
+              <img 
+                src="/virank-logo.png" 
+                alt="VIRANK Corp" 
+                className="h-10 w-auto object-contain mr-3"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'block';
+                }}
+              />
+              <span className="text-xl font-bold text-gray-900" style={{display: 'none'}}>VIRANK Corp</span>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
@@ -468,7 +477,16 @@ const VirankLanding = () => {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center mb-4">
-                <span className="text-xl font-bold">VIRANK Corp</span>
+                <img 
+                  src="/virank-logo.png" 
+                  alt="VIRANK Corp" 
+                  className="h-8 w-auto object-contain mr-3"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.nextSibling.style.display = 'block';
+                  }}
+                />
+                <span className="text-xl font-bold" style={{display: 'none'}}>VIRANK Corp</span>
               </div>
               <p className="text-gray-400">
                 L'IA Africaine qui Bâtit l'Avenir
