@@ -98,10 +98,10 @@ const VirankLanding = () => {
           </div>
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg mx-auto text-gray-600">
-              <p className="text-xl leading-relaxed mb-6">
+              <p className="text-xl leading-relaxed mb-6 text-justify">
                 Virank Corp est la force motrice derrière une nouvelle vague d'innovation technologique africaine. Notre mission est simple : utiliser le potentiel de l'Intelligence Artificielle pour relever les défis socio-économiques et créer des systèmes durables.
               </p>
-              <p className="text-lg leading-relaxed mb-8">
+              <p className="text-lg leading-relaxed mb-8 text-justify">
                 Nous combinons une expertise mondiale en IA avec une connaissance approfondie du terrain. Nous ne nous contentons pas d'appliquer la technologie ; nous la concevons pour qu'elle soit pertinente, impactante et accessible.
               </p>
               <div className="bg-gray-50 rounded-xl p-8 mb-8">
@@ -415,10 +415,10 @@ const VirankLanding = () => {
               </div>
               
               <div className="prose prose-lg mx-auto text-gray-200">
-                <p className="text-xl leading-relaxed mb-6">
+                <p className="text-xl leading-relaxed mb-6 text-justify">
                   Virank Corp est propulsée par la vision d'une Ingénieure IA congolaise d'exception. Son parcours remarquable, couronné par un MSc de Data Science et IA à Goldsmiths, University of London et ses recherches doctorales en cours, est notre gage d'excellence.
                 </p>
-                <p className="text-lg leading-relaxed">
+                <p className="text-lg leading-relaxed text-justify">
                   Notre fondatrice insuffle dans chaque projet une double expertise : la rigueur académique et l'innovation de pointe (AI & ML) pour les marchés mondiaux, couplée à une compréhension intime des besoins et des opportunités spécifiques en RDC et en Afrique. Son leadership assure que nos solutions sont à la fois sophistiquées et ancrées dans la réalité.
                 </p>
               </div>
