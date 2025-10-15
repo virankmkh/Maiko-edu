@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 import { 
   BookOpen, 
   Users, 
@@ -68,6 +69,7 @@ const TypewriterText = ({ text, speed = 100, className = "" }) => {
 };
 
 const Home = () => {
+  const { t } = useLanguage();
   const [currentMessage, setCurrentMessage] = useState(0);
 
 
