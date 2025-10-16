@@ -21,6 +21,13 @@ const LabTemplate = require('../models/LabTemplate');
 const StudentActivity = require('../models/StudentActivity');
 const CoursePayment = require('../models/CoursePayment');
 
+// Event CD models
+const Event = require('../models/Event');
+const Ticket = require('../models/Ticket');
+const EventRegistration = require('../models/EventRegistration');
+const EventCheckIn = require('../models/EventCheckIn');
+const EventMessage = require('../models/EventMessage');
+
 // Create completely clean Sequelize instance for PostgreSQL
 const databaseUrl = process.env.DATABASE_URL;
 
@@ -91,7 +98,14 @@ const models = {
   LabSession: LabSession(sequelize),
   LabTemplate: LabTemplate(sequelize),
   StudentActivity: StudentActivity(sequelize),
-  CoursePayment: CoursePayment(sequelize)
+  CoursePayment: CoursePayment(sequelize),
+  
+  // Event CD models
+  Event: Event(sequelize),
+  Ticket: Ticket(sequelize),
+  EventRegistration: EventRegistration(sequelize),
+  EventCheckIn: EventCheckIn(sequelize),
+  EventMessage: EventMessage(sequelize)
 };
 
 // Set up associations
@@ -105,6 +119,10 @@ Object.values(models).forEach(model => {
 if (StudentActivity.associate) {
   StudentActivity.associate(models);
 }
+
+// Set up Event CD associations (temporarily disabled for testing)
+// const setupEventAssociations = require('../models/associations/eventAssociations');
+// setupEventAssociations(models);
 
 // Test database connection
 const testConnection = async () => {
