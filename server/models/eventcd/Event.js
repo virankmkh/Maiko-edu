@@ -180,6 +180,17 @@ const Event = (sequelize) => sequelize.define('Event', {
   }
 });
 
+// Set up associations
+Event.associate = (models) => {
+  // Associate with Organization if it exists
+  if (models.Organization) {
+    Event.belongsTo(models.Organization, { foreignKey: 'organizerId', as: 'Organizer' });
+  }
+  Event.hasMany(models.Ticket, { foreignKey: 'eventId', as: 'Tickets' });
+  Event.hasMany(models.EventRegistration, { foreignKey: 'eventId', as: 'Registrations' });
+  Event.hasMany(models.EventCheckIn, { foreignKey: 'eventId', as: 'CheckIns' });
+};
+
 // Instance methods (will be added after model creation)
 
 module.exports = Event;
