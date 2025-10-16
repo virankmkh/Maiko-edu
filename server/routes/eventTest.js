@@ -7,18 +7,19 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   try {
     // Test loading Event CD models
-    const { Event, Ticket, EventRegistration, EventCheckIn, EventMessage } = require('../config/database');
+    const { models } = require('../config/database');
     
     res.json({
       success: true,
       message: 'Event CD models loaded successfully',
       models: {
-        Event: Event ? 'Loaded' : 'Failed',
-        Ticket: Ticket ? 'Loaded' : 'Failed',
-        EventRegistration: EventRegistration ? 'Loaded' : 'Failed',
-        EventCheckIn: EventCheckIn ? 'Loaded' : 'Failed',
-        EventMessage: EventMessage ? 'Loaded' : 'Failed'
+        Event: models.Event ? 'Loaded' : 'Failed',
+        Ticket: models.Ticket ? 'Loaded' : 'Failed',
+        EventRegistration: models.EventRegistration ? 'Loaded' : 'Failed',
+        EventCheckIn: models.EventCheckIn ? 'Loaded' : 'Failed',
+        EventMessage: models.EventMessage ? 'Loaded' : 'Failed'
       },
+      allModels: Object.keys(models),
       timestamp: new Date().toISOString()
     });
   } catch (error) {
