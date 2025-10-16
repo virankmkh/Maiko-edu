@@ -202,6 +202,10 @@ console.log('✅ Student Activity routes registered');
 app.use('/api/simple-students', require('./routes/simple-students'));
 console.log('✅ Simple Students routes registered');
 
+// Event CD test route
+app.use('/api/event-test', require('./routes/eventTest'));
+console.log('✅ Event Test route registered');
+
 // Event CD routes (temporarily disabled for testing)
 // app.use('/api/events', require('./routes/events'));
 // console.log('✅ Events routes registered');
