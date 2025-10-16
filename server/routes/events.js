@@ -46,24 +46,69 @@ router.get('/test', (req, res) => {
 // @access  Public
 router.get('/', async (req, res) => {
   try {
-    // Simple test response first
+    const {
+      page = 1,
+      limit = 12,
+      category,
+      eventType,
+      city,
+      country,
+      search,
+      sortBy = 'startDate',
+      sortOrder = 'ASC'
+    } = req.query;
+
+    const offset = (page - 1) * limit;
+
+    // Build where clause
+    const whereClause = {
+      isPublic: true,
+      isPublished: true,
+      status: 'published'
+    };
+
+    if (category) whereClause.category = category;
+    if (eventType) whereClause.eventType = eventType;
+    if (city) whereClause.city = city;
+    if (country) whereClause.country = country;
+
+    if (search) {
+      whereClause[Op.or] = [
+        { title: { [Op.iLike]: `%${search}%` } },
+        { description: { [Op.iLike]: `%${search}%` } },
+        { shortDescription: { [Op.iLike]: `%${search}%` } }
+      ];
+    }
+
+    if (!Event) {
+      console.error('Event model not available in models:', Object.keys(models));
+      return res.status(500).json({ message: 'Event model not available' });
+    }
+
+    // Query events without associations to avoid errors
+    const { count, rows: events } = await Event.findAndCountAll({
+      where: whereClause,
+      order: [[sortBy, sortOrder]],
+      limit: parseInt(limit),
+      offset: parseInt(offset)
+    });
+
     res.json({
       success: true,
-      message: 'Events endpoint is working',
-      data: [],
+      data: events,
       pagination: {
-        currentPage: 1,
-        totalPages: 0,
-        totalEvents: 0,
-        hasNext: false,
-        hasPrev: false
+        currentPage: parseInt(page),
+        totalPages: Math.ceil(count / limit),
+        totalEvents: count,
+        hasNext: offset + events.length < count,
+        hasPrev: page > 1
       }
     });
   } catch (error) {
-    console.error('Error in events route:', error);
+    console.error('Error fetching events:', error);
     res.status(500).json({
       success: false,
-      message: 'Error in events route',
+      message: 'Error fetching events',
       error: error.message
     });
   }
