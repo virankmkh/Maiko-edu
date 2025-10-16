@@ -100,12 +100,12 @@ const models = {
   StudentActivity: StudentActivity(sequelize),
   CoursePayment: CoursePayment(sequelize),
   
-  // Event CD models
-  Event: Event(sequelize),
-  Ticket: Ticket(sequelize),
-  EventRegistration: EventRegistration(sequelize),
-  EventCheckIn: EventCheckIn(sequelize),
-  EventMessage: EventMessage(sequelize)
+  // Event CD models (temporarily disabled for testing)
+  // Event: Event(sequelize),
+  // Ticket: Ticket(sequelize),
+  // EventRegistration: EventRegistration(sequelize),
+  // EventCheckIn: EventCheckIn(sequelize),
+  // EventMessage: EventMessage(sequelize)
 };
 
 // Set up associations
