@@ -100,28 +100,9 @@ router.get('/', [
       return res.status(500).json({ message: 'Event model not available' });
     }
 
-    // Build include array conditionally to avoid association errors
-    const includeArray = [];
-    
-    if (Organization) {
-      includeArray.push({
-        model: Organization,
-        as: 'Organizer',
-        attributes: ['id', 'name', 'logo', 'description']
-      });
-    }
-    
-    if (Ticket) {
-      includeArray.push({
-        model: Ticket,
-        as: 'Tickets',
-        attributes: ['id', 'name', 'price', 'currency', 'isFree', 'status']
-      });
-    }
-
+    // Temporarily disable includes to avoid association errors
     const { count, rows: events } = await Event.findAndCountAll({
       where: whereClause,
-      include: includeArray,
       order: [[sortBy, sortOrder]],
       limit: parseInt(limit),
       offset: parseInt(offset)
@@ -155,28 +136,9 @@ router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
 
-    // Build include array conditionally
-    const includeArray = [];
-    
-    if (Organization) {
-      includeArray.push({
-        model: Organization,
-        as: 'Organizer',
-        attributes: ['id', 'name', 'companyName', 'logo', 'description', 'website']
-      });
-    }
-    
-    if (Ticket) {
-      includeArray.push({
-        model: Ticket,
-        as: 'Tickets',
-        attributes: ['id', 'name', 'description', 'price', 'currency', 'isFree', 'status', 'quantityAvailable', 'quantitySold']
-      });
-    }
-
+    // Temporarily disable includes to avoid association errors
     const event = await Event.findOne({
-      where: { id, isPublic: true, isPublished: true },
-      include: includeArray
+      where: { id, isPublic: true, isPublished: true }
     });
 
     if (!event) {
@@ -207,28 +169,9 @@ router.get('/slug/:slug', async (req, res) => {
   try {
     const { slug } = req.params;
 
-    // Build include array conditionally
-    const includeArray = [];
-    
-    if (Organization) {
-      includeArray.push({
-        model: Organization,
-        as: 'Organizer',
-        attributes: ['id', 'name', 'companyName', 'logo', 'description', 'website']
-      });
-    }
-    
-    if (Ticket) {
-      includeArray.push({
-        model: Ticket,
-        as: 'Tickets',
-        attributes: ['id', 'name', 'description', 'price', 'currency', 'isFree', 'status', 'quantityAvailable', 'quantitySold']
-      });
-    }
-
+    // Temporarily disable includes to avoid association errors
     const event = await Event.findOne({
-      where: { slug, isPublic: true, isPublished: true },
-      include: includeArray
+      where: { slug, isPublic: true, isPublished: true }
     });
 
     if (!event) {
