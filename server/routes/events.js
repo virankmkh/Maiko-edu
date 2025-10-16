@@ -1,8 +1,20 @@
 const express = require('express');
 const { body, validationResult, query } = require('express-validator');
 const { Op } = require('sequelize');
-const { Event, Organization, Ticket, EventRegistration } = require('../config/database').models;
+const { models } = require('../config/database');
+const { Event, Organization, Ticket, EventRegistration } = models;
 const router = express.Router();
+
+// @route   GET /api/events/test
+// @desc    Test if events route is working
+// @access  Public
+router.get('/test', (req, res) => {
+  res.json({ 
+    message: 'Events route is working!', 
+    models: Object.keys(require('../config/database').models),
+    eventModel: !!Event
+  });
+});
 
 // @route   GET /api/events
 // @desc    Get all public events with filtering and pagination
@@ -59,6 +71,7 @@ router.get('/', [
     }
 
     if (!Event) {
+      console.error('Event model not available in models:', Object.keys(models));
       return res.status(500).json({ message: 'Event model not available' });
     }
 
