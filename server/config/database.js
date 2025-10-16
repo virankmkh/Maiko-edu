@@ -26,7 +26,6 @@ const Event = require('../models/eventcd/Event');
 const Ticket = require('../models/eventcd/Ticket');
 const EventRegistration = require('../models/eventcd/Registration');
 const EventCheckIn = require('../models/eventcd/CheckIn');
-const EventMessage = require('../models/eventcd/EventMessage');
 
 // Create completely clean Sequelize instance for PostgreSQL
 const databaseUrl = process.env.DATABASE_URL;
@@ -104,8 +103,7 @@ const models = {
   Event: Event(sequelize),
   Ticket: Ticket(sequelize),
   EventRegistration: EventRegistration(sequelize),
-  EventCheckIn: EventCheckIn(sequelize),
-  EventMessage: EventMessage(sequelize)
+  EventCheckIn: EventCheckIn(sequelize)
 };
 
 // Set up associations
