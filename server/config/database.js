@@ -21,11 +21,11 @@ const LabTemplate = require('../models/LabTemplate');
 const StudentActivity = require('../models/StudentActivity');
 const CoursePayment = require('../models/CoursePayment');
 
-// Event CD models
-const Event = require('../models/eventcd/Event');
-const Ticket = require('../models/eventcd/Ticket');
-const EventRegistration = require('../models/eventcd/Registration');
-const EventCheckIn = require('../models/eventcd/CheckIn');
+// Event CD models (temporarily disabled)
+// const Event = require('../models/eventcd/Event');
+// const Ticket = require('../models/eventcd/Ticket');
+// const EventRegistration = require('../models/eventcd/Registration');
+// const EventCheckIn = require('../models/eventcd/CheckIn');
 
 // Create completely clean Sequelize instance for PostgreSQL
 const databaseUrl = process.env.DATABASE_URL;
@@ -99,11 +99,11 @@ const models = {
   StudentActivity: StudentActivity(sequelize),
   CoursePayment: CoursePayment(sequelize),
   
-  // Event CD models
-  Event: Event(sequelize),
-  Ticket: Ticket(sequelize),
-  EventRegistration: EventRegistration(sequelize),
-  EventCheckIn: EventCheckIn(sequelize)
+  // Event CD models (temporarily disabled)
+  // Event: Event(sequelize),
+  // Ticket: Ticket(sequelize),
+  // EventRegistration: EventRegistration(sequelize),
+  // EventCheckIn: EventCheckIn(sequelize)
 };
 
 // Set up associations

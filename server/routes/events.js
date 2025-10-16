@@ -58,6 +58,10 @@ router.get('/', [
       ];
     }
 
+    if (!Event) {
+      return res.status(500).json({ message: 'Event model not available' });
+    }
+
     const { count, rows: events } = await Event.findAndCountAll({
       where: whereClause,
         include: [

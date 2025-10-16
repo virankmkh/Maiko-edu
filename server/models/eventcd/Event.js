@@ -8,11 +8,7 @@ const Event = (sequelize) => sequelize.define('Event', {
   },
   organizerId: {
     type: DataTypes.UUID,
-    allowNull: false,
-    references: {
-      model: 'Organizations',
-      key: 'id'
-    }
+    allowNull: false
   },
   title: {
     type: DataTypes.STRING,

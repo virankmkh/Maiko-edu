@@ -8,11 +8,7 @@ const Ticket = (sequelize) => sequelize.define('Ticket', {
   },
   eventId: {
     type: DataTypes.UUID,
-    allowNull: false,
-    references: {
-      model: 'Events',
-      key: 'id'
-    }
+    allowNull: false
   },
   name: {
     type: DataTypes.STRING,

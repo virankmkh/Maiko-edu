@@ -9,19 +9,11 @@ const CheckIn = (sequelize) => sequelize.define('CheckIn', {
   registrationId: {
     type: DataTypes.UUID,
     allowNull: false,
-    references: {
-      model: 'Registrations',
-      key: 'id'
-    },
     unique: true // Each registration can only be checked in once
   },
   eventId: {
     type: DataTypes.UUID,
-    allowNull: false,
-    references: {
-      model: 'Events',
-      key: 'id'
-    }
+    allowNull: false
   },
   checkInTime: {
     type: DataTypes.DATE,

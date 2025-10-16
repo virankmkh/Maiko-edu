@@ -8,19 +8,11 @@ const Registration = (sequelize) => sequelize.define('Registration', {
   },
   eventId: {
     type: DataTypes.UUID,
-    allowNull: false,
-    references: {
-      model: 'Events',
-      key: 'id'
-    }
+    allowNull: false
   },
   ticketId: {
     type: DataTypes.UUID,
-    allowNull: true,
-    references: {
-      model: 'Tickets',
-      key: 'id'
-    }
+    allowNull: true
   },
   attendeeName: {
     type: DataTypes.STRING,
