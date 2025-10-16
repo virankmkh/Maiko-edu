@@ -202,13 +202,13 @@ console.log('✅ Student Activity routes registered');
 app.use('/api/simple-students', require('./routes/simple-students'));
 console.log('✅ Simple Students routes registered');
 
-// Event CD routes (temporarily disabled)
-// app.use('/api/events', require('./routes/events'));
-// console.log('✅ Events routes registered');
-// app.use('/api/tickets', require('./routes/tickets'));
-// console.log('✅ Tickets routes registered');
-// app.use('/api/event-registrations', require('./routes/eventRegistrations'));
-// console.log('✅ Event Registrations routes registered');
+// Event CD routes
+app.use('/api/events', require('./routes/events'));
+console.log('✅ Events routes registered');
+app.use('/api/tickets', require('./routes/tickets'));
+console.log('✅ Tickets routes registered');
+app.use('/api/event-registrations', require('./routes/eventRegistrations'));
+console.log('✅ Event Registrations routes registered');
 
 // Socket.io connection handling
 io.on('connection', (socket) => {
