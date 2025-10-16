@@ -202,13 +202,27 @@ console.log('✅ Student Activity routes registered');
 app.use('/api/simple-students', require('./routes/simple-students'));
 console.log('✅ Simple Students routes registered');
 
-// Event CD routes
-app.use('/api/events', require('./routes/events'));
-console.log('✅ Events routes registered');
-app.use('/api/tickets', require('./routes/tickets'));
-console.log('✅ Tickets routes registered');
-app.use('/api/event-registrations', require('./routes/eventRegistrations'));
-console.log('✅ Event Registrations routes registered');
+// Event CD routes (with error handling)
+try {
+  app.use('/api/events', require('./routes/events'));
+  console.log('✅ Events routes registered');
+} catch (error) {
+  console.log('❌ Events routes failed to load:', error.message);
+}
+
+try {
+  app.use('/api/tickets', require('./routes/tickets'));
+  console.log('✅ Tickets routes registered');
+} catch (error) {
+  console.log('❌ Tickets routes failed to load:', error.message);
+}
+
+try {
+  app.use('/api/event-registrations', require('./routes/eventRegistrations'));
+  console.log('✅ Event Registrations routes registered');
+} catch (error) {
+  console.log('❌ Event Registrations routes failed to load:', error.message);
+}
 
 // Socket.io connection handling
 io.on('connection', (socket) => {

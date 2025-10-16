@@ -1,19 +1,44 @@
 const express = require('express');
 const { body, validationResult, query } = require('express-validator');
 const { Op } = require('sequelize');
-const { models } = require('../config/database');
-const { Event, Organization, Ticket, EventRegistration } = models;
+let models, Event, Organization, Ticket, EventRegistration;
+
+try {
+  models = require('../config/database').models;
+  Event = models.Event;
+  Organization = models.Organization;
+  Ticket = models.Ticket;
+  EventRegistration = models.EventRegistration;
+} catch (error) {
+  console.error('Failed to load models in events route:', error.message);
+  Event = null;
+  Organization = null;
+  Ticket = null;
+  EventRegistration = null;
+}
 const router = express.Router();
 
 // @route   GET /api/events/test
 // @desc    Test if events route is working
 // @access  Public
 router.get('/test', (req, res) => {
-  res.json({ 
-    message: 'Events route is working!', 
-    models: Object.keys(require('../config/database').models),
-    eventModel: !!Event
-  });
+  try {
+    const availableModels = models ? Object.keys(models) : [];
+    res.json({ 
+      message: 'Events route is working!', 
+      models: availableModels,
+      eventModel: !!Event,
+      organizationModel: !!Organization,
+      ticketModel: !!Ticket,
+      registrationModel: !!EventRegistration
+    });
+  } catch (error) {
+    res.json({ 
+      message: 'Events route loaded but models failed', 
+      error: error.message,
+      eventModel: !!Event
+    });
+  }
 });
 
 // @route   GET /api/events
