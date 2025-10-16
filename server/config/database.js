@@ -24,6 +24,10 @@ const CoursePayment = require('../models/CoursePayment');
 // Create completely clean Sequelize instance for PostgreSQL
 const databaseUrl = process.env.DATABASE_URL;
 
+console.log('🔧 DATABASE_URL check:');
+console.log('DATABASE_URL exists:', !!databaseUrl);
+console.log('DATABASE_URL value:', databaseUrl ? `${databaseUrl.substring(0, 20)}...` : 'undefined');
+
 if (!databaseUrl) {
   console.error('❌ DATABASE_URL environment variable is not set');
   console.log('Available environment variables:');
