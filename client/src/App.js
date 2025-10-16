@@ -34,6 +34,15 @@ import BusinessEntrepreneurship from './pages/BusinessEntrepreneurship';
 import TestError from './components/TestError';
 import JitsiTest from './components/JitsiTest';
 import H5PTest from './components/H5PTest';
+
+// Event CD Pages
+import EventsPage from './pages/eventcd/EventsPage';
+import EventDetailPage from './pages/eventcd/EventDetailPage';
+import OrganizerDashboard from './pages/eventcd/OrganizerDashboard';
+import OrganizerLogin from './pages/eventcd/OrganizerLogin';
+import OrganizerRegister from './pages/eventcd/OrganizerRegister';
+import RegistrationSuccess from './pages/eventcd/RegistrationSuccess';
+import CheckInPage from './pages/eventcd/CheckInPage';
 import CourseCreationTest from './pages/CourseCreationTest';
 import CoursePlayerDebug from './pages/CoursePlayerDebug';
 import DebugLoader from './components/DebugLoader';
@@ -153,6 +162,20 @@ const AppContent = () => {
               <LabManagement />
             </PrivateRoute>
           } />
+
+          {/* Event CD Routes */}
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/event/:id" element={<EventDetailPage />} />
+          <Route path="/event/slug/:slug" element={<EventDetailPage />} />
+          <Route path="/organizer/login" element={<OrganizerLogin />} />
+          <Route path="/organizer/register" element={<OrganizerRegister />} />
+          <Route path="/organizer/dashboard" element={
+            <PrivateRoute>
+              <OrganizerDashboard />
+            </PrivateRoute>
+          } />
+          <Route path="/registration/success" element={<RegistrationSuccess />} />
+          <Route path="/check-in" element={<CheckInPage />} />
         </Routes>
       </main>
       {!isVirankLanding && !isEventCD && <Footer />}

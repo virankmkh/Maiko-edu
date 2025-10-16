@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Eye, EyeOff, Calendar, ArrowLeft } from 'lucide-react';
-import { loginOrganizer } from '../../services/eventcdApi';
+import { authAPI } from '../services/api';
 
 const OrganizerLogin = () => {
   const navigate = useNavigate();
@@ -15,11 +15,11 @@ const OrganizerLogin = () => {
   const onSubmit = async (data) => {
     setIsLoading(true);
     try {
-      const response = await loginOrganizer(data);
+      const response = await authAPI.login(data);
       
       // Store auth data
-      localStorage.setItem('organizerToken', response.token);
-      localStorage.setItem('organizer', JSON.stringify(response.organizer));
+      localStorage.setItem('organizerToken', response.data.data.token);
+      localStorage.setItem('organizer', JSON.stringify(response.data.data.organizer));
       
       toast.success('Login successful!');
       navigate('/organizer/dashboard');

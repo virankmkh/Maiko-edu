@@ -2,29 +2,36 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { Eye, EyeOff, Calendar, ArrowLeft } from 'lucide-react';
-import { loginOrganizer } from '../../services/eventcdApi';
+import { Eye, EyeOff, Calendar, ArrowLeft, CheckCircle } from 'lucide-react';
+import { authAPI } from '../services/api';
 
-const OrganizerLogin = () => {
+const OrganizerRegister = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const password = watch('password');
 
   const onSubmit = async (data) => {
     setIsLoading(true);
     try {
-      const response = await loginOrganizer(data);
+      const response = await authAPI.register({
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        companyName: data.companyName || null
+      });
       
       // Store auth data
-      localStorage.setItem('organizerToken', response.token);
-      localStorage.setItem('organizer', JSON.stringify(response.organizer));
+      localStorage.setItem('organizerToken', response.data.data.token);
+      localStorage.setItem('organizer', JSON.stringify(response.data.data.organizer));
       
-      toast.success('Login successful!');
+      toast.success('Registration successful! Welcome to Event CD!');
       navigate('/organizer/dashboard');
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Login failed');
+      toast.error(error.response?.data?.message || 'Registration failed');
     } finally {
       setIsLoading(false);
     }
@@ -52,15 +59,15 @@ const OrganizerLogin = () => {
         </div>
         
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Sign in to your account
+          Create your organizer account
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
           Or{' '}
           <Link
-            to="/organizer/register"
+            to="/organizer/login"
             className="font-medium text-blue-600 hover:text-blue-500"
           >
-            create a new organizer account
+            sign in to your existing account
           </Link>
         </p>
       </div>
@@ -69,8 +76,32 @@ const OrganizerLogin = () => {
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                Full Name *
+              </label>
+              <div className="mt-1">
+                <input
+                  {...register('name', {
+                    required: 'Name is required',
+                    minLength: {
+                      value: 2,
+                      message: 'Name must be at least 2 characters'
+                    }
+                  })}
+                  type="text"
+                  autoComplete="name"
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  placeholder="Enter your full name"
+                />
+                {errors.name && (
+                  <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
+                )}
+              </div>
+            </div>
+
+            <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email address
+                Email address *
               </label>
               <div className="mt-1">
                 <input
@@ -93,8 +124,23 @@ const OrganizerLogin = () => {
             </div>
 
             <div>
+              <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">
+                Company Name
+              </label>
+              <div className="mt-1">
+                <input
+                  {...register('companyName')}
+                  type="text"
+                  autoComplete="organization"
+                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  placeholder="Enter your company name (optional)"
+                />
+              </div>
+            </div>
+
+            <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                Password
+                Password *
               </label>
               <div className="mt-1 relative">
                 <input
@@ -106,9 +152,9 @@ const OrganizerLogin = () => {
                     }
                   })}
                   type={showPassword ? 'text' : 'password'}
-                  autoComplete="current-password"
+                  autoComplete="new-password"
                   className="appearance-none block w-full px-3 py-2 pr-10 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                  placeholder="Enter your password"
+                  placeholder="Create a password"
                 />
                 <button
                   type="button"
@@ -127,25 +173,62 @@ const OrganizerLogin = () => {
               )}
             </div>
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
+            <div>
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+                Confirm Password *
+              </label>
+              <div className="mt-1 relative">
                 <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                  {...register('confirmPassword', {
+                    required: 'Please confirm your password',
+                    validate: value => value === password || 'Passwords do not match'
+                  })}
+                  type={showConfirmPassword ? 'text' : 'password'}
+                  autoComplete="new-password"
+                  className="appearance-none block w-full px-3 py-2 pr-10 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  placeholder="Confirm your password"
                 />
-                <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                  Remember me
-                </label>
+                <button
+                  type="button"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                >
+                  {showConfirmPassword ? (
+                    <EyeOff className="h-5 w-5 text-gray-400" />
+                  ) : (
+                    <Eye className="h-5 w-5 text-gray-400" />
+                  )}
+                </button>
               </div>
-
-              <div className="text-sm">
-                <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
-                  Forgot your password?
-                </a>
-              </div>
+              {errors.confirmPassword && (
+                <p className="mt-1 text-sm text-red-600">{errors.confirmPassword.message}</p>
+              )}
             </div>
+
+            <div className="flex items-center">
+              <input
+                {...register('terms', {
+                  required: 'You must accept the terms and conditions'
+                })}
+                id="terms"
+                name="terms"
+                type="checkbox"
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+              />
+              <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
+                I agree to the{' '}
+                <a href="#" className="text-blue-600 hover:text-blue-500">
+                  Terms and Conditions
+                </a>{' '}
+                and{' '}
+                <a href="#" className="text-blue-600 hover:text-blue-500">
+                  Privacy Policy
+                </a>
+              </label>
+            </div>
+            {errors.terms && (
+              <p className="text-sm text-red-600">{errors.terms.message}</p>
+            )}
 
             <div>
               <button
@@ -156,10 +239,10 @@ const OrganizerLogin = () => {
                 {isLoading ? (
                   <div className="flex items-center">
                     <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                    Signing in...
+                    Creating account...
                   </div>
                 ) : (
-                  'Sign in'
+                  'Create account'
                 )}
               </button>
             </div>
@@ -171,16 +254,16 @@ const OrganizerLogin = () => {
                 <div className="w-full border-t border-gray-300" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">New to Event CD?</span>
+                <span className="px-2 bg-white text-gray-500">Already have an account?</span>
               </div>
             </div>
 
             <div className="mt-6">
               <Link
-                to="/organizer/register"
+                to="/organizer/login"
                 className="w-full flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
-                Create organizer account
+                Sign in instead
               </Link>
             </div>
           </div>
@@ -190,4 +273,4 @@ const OrganizerLogin = () => {
   );
 };
 
-export default OrganizerLogin;
+export default OrganizerRegister;

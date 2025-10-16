@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-// @route   GET /api/tickets
-// @desc    Get tickets (placeholder)
+// @route   GET /api/messages
+// @desc    Get messages (placeholder)
 // @access  Public
 router.get('/', (req, res) => {
   res.json({
     success: true,
-    message: 'Tickets endpoint - coming soon',
+    message: 'Messages endpoint - coming soon',
     data: []
   });
 });

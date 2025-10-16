@@ -22,11 +22,11 @@ const StudentActivity = require('../models/StudentActivity');
 const CoursePayment = require('../models/CoursePayment');
 
 // Event CD models
-const Event = require('../models/Event');
-const Ticket = require('../models/Ticket');
-const EventRegistration = require('../models/EventRegistration');
-const EventCheckIn = require('../models/EventCheckIn');
-const EventMessage = require('../models/EventMessage');
+const Event = require('../models/eventcd/Event');
+const Ticket = require('../models/eventcd/Ticket');
+const EventRegistration = require('../models/eventcd/Registration');
+const EventCheckIn = require('../models/eventcd/CheckIn');
+const EventMessage = require('../models/eventcd/EventMessage');
 
 // Create completely clean Sequelize instance for PostgreSQL
 const databaseUrl = process.env.DATABASE_URL;

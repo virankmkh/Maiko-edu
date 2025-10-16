@@ -95,6 +95,7 @@ const Navbar = () => {
     return [
       { path: '/', label: t('navigation.home'), icon: null },
       { path: '/courses', label: t('navigation.courses'), icon: BookOpen },
+      { path: '/events', label: 'Events', icon: null },
       { path: '/about', label: t('navigation.about'), icon: null },
       { path: '/team', label: t('navigation.team'), icon: null },
       { path: '/contact', label: t('navigation.contact'), icon: null },

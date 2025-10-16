@@ -1,422 +1,198 @@
 const express = require('express');
+const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { body, validationResult } = require('express-validator');
-const { models } = require('../config/database');
-const User = models.User;
-const Organization = models.Organization;
-const Affiliate = models.Affiliate;
-const auth = require('../middleware/auth');
+const { Organizer } = require('../models');
 const router = express.Router();
 
-// @route   GET /api/auth
-// @desc    Get auth endpoints info
-// @access  Public
-router.get('/', (req, res) => {
-  res.json({
-    message: 'Auth API endpoints',
-    endpoints: {
-      register: 'POST /api/auth/register',
-      login: 'POST /api/auth/login',
-      me: 'GET /api/auth/me',
-      refresh: 'POST /api/auth/refresh',
-      forgotPassword: 'POST /api/auth/forgot-password',
-      resetPassword: 'POST /api/auth/reset-password',
-      changePassword: 'PUT /api/auth/change-password',
-      verifyEmail: 'POST /api/auth/verify-email',
-      logout: 'POST /api/auth/logout'
-    }
-  });
-});
-
 // @route   POST /api/auth/register
-// @desc    Register a new user
+// @desc    Register new organizer
 // @access  Public
 router.post('/register', [
-  body('firstName', 'First name is required').notEmpty().trim(),
-  body('lastName', 'Last name is required').notEmpty().trim(),
-  body('email', 'Please include a valid email').isEmail().normalizeEmail(),
-  body('password', 'Password must be at least 6 characters').isLength({ min: 6 }),
-  body('userType', 'Invalid user type').isIn(['student', 'lecturer', 'organization']),
-  body('organizationId').optional().isInt()
+  body('name').trim().isLength({ min: 2, max: 100 }).withMessage('Name must be 2-100 characters'),
+  body('email').isEmail().normalizeEmail().withMessage('Valid email required'),
+  body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
+  body('companyName').optional().trim().isLength({ max: 100 })
 ], async (req, res) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    const { firstName, lastName, email, password, userType, organizationId, affiliateCode, phone, dateOfBirth, organizationName, linkedinProfile } = req.body;
-    
-    // Map userType to role
-    const roleMap = {
-      'student': 'student',
-      'lecturer': 'instructor', 
-      'organization': 'organization_admin'
-    };
-    const role = roleMap[userType];
-
-    // Check if user already exists
-    let user = await User.findOne({ where: { email } });
-    if (user) {
-      return res.status(400).json({ message: 'User already exists with this email' });
-    }
-
-    // Check if organization exists if provided
-    if (organizationId && role !== 'student') {
-      const organization = await Organization.findByPk(organizationId);
-      if (!organization) {
-        return res.status(400).json({ message: 'Organization not found' });
-      }
-    }
-
-    // Create user
-    user = await User.create({
-      firstName,
-      lastName,
-      email,
-      password,
-      role,
-      organizationId: organizationId || null,
-      phone: phone || null,
-      dateOfBirth: dateOfBirth || null,
-      linkedinProfile: linkedinProfile || null
-    });
-
-    // Generate affiliate code if user is a student
-    if (role === 'student') {
-      user.affiliateCode = user.generateAffiliateCode();
-      await user.save();
-    }
-
-    // Create affiliate profile for students
-    if (role === 'student') {
-      const affiliate = await Affiliate.create({
-        affiliateId: user.id,
-        affiliateCode: user.affiliateCode
+      return res.status(400).json({
+        success: false,
+        message: 'Validation failed',
+        errors: errors.array()
       });
     }
 
-    // Handle referral if affiliate code provided
-    if (affiliateCode && role === 'student') {
-      const referrer = await User.findOne({ where: { affiliateCode } });
-      if (referrer) {
-        user.referredBy = referrer.id;
-        referrer.referralCount += 1;
-        await referrer.save();
-        
-        // Update affiliate profile
-        const referrerAffiliate = await Affiliate.findOne({ where: { affiliateId: referrer.id } });
-        if (referrerAffiliate) {
-          await referrerAffiliate.addReferral(user.id);
-        }
-      }
+    const { name, email, password, companyName } = req.body;
+
+    // Check if organizer already exists
+    const existingOrganizer = await Organizer.findOne({ where: { email } });
+    if (existingOrganizer) {
+      return res.status(400).json({
+        success: false,
+        message: 'Organizer with this email already exists'
+      });
     }
 
-    // Generate JWT token
-    const payload = {
-      user: {
-        id: user.id,
-        role: user.role,
-        organizationId: user.organizationId
-      }
-    };
+    // Hash password
+    const saltRounds = 12;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    jwt.sign(
-      payload,
-      process.env.JWT_SECRET || 'your-secret-key',
-      { expiresIn: '7d' },
-      (err, token) => {
-        if (err) throw err;
-        res.json({
-          token,
-          user: {
-            id: user.id,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-            role: user.role,
-            organizationId: user.organizationId,
-            affiliateCode: user.affiliateCode
-          }
-        });
-      }
+    // Create organizer
+    const organizer = await Organizer.create({
+      name,
+      email,
+      password: hashedPassword,
+      companyName: companyName || null
+    });
+
+    // Generate JWT token
+    const token = jwt.sign(
+      { 
+        organizerId: organizer.id,
+        email: organizer.email 
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: '7d' }
     );
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ message: 'Internal server error' });
+
+    // Remove password from response
+    const organizerData = { ...organizer.toJSON() };
+    delete organizerData.password;
+
+    res.status(201).json({
+      success: true,
+      message: 'Organizer registered successfully',
+      data: {
+        organizer: organizerData,
+        token
+      }
+    });
+  } catch (error) {
+    console.error('Registration error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Registration failed',
+      error: error.message
+    });
   }
 });
 
 // @route   POST /api/auth/login
-// @desc    Authenticate user & get token
+// @desc    Login organizer
 // @access  Public
 router.post('/login', [
-  body('email', 'Please include a valid email').isEmail().normalizeEmail(),
-  body('password', 'Password is required').exists()
+  body('email').isEmail().normalizeEmail().withMessage('Valid email required'),
+  body('password').notEmpty().withMessage('Password required')
 ], async (req, res) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+      return res.status(400).json({
+        success: false,
+        message: 'Validation failed',
+        errors: errors.array()
+      });
     }
 
     const { email, password } = req.body;
 
-    // Check if user exists
-    const user = await User.findOne({ where: { email } });
-    if (!user) {
-      return res.status(400).json({ message: 'Invalid credentials' });
-    }
-
-    // Check if user is active
-    if (!user.isActive) {
-      return res.status(400).json({ message: 'Account has been deactivated' });
+    // Find organizer
+    const organizer = await Organizer.findOne({ where: { email } });
+    if (!organizer) {
+      return res.status(401).json({
+        success: false,
+        message: 'Invalid credentials'
+      });
     }
 
     // Check password
-    const isMatch = await user.comparePassword(password);
-    if (!isMatch) {
-      return res.status(400).json({ message: 'Invalid credentials' });
+    const isPasswordValid = await bcrypt.compare(password, organizer.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({
+        success: false,
+        message: 'Invalid credentials'
+      });
     }
 
-    // Update last login
-    user.lastLogin = new Date();
-    await user.save();
+    // Check if organizer is active
+    if (!organizer.isActive) {
+      return res.status(401).json({
+        success: false,
+        message: 'Account is deactivated'
+      });
+    }
 
     // Generate JWT token
-    const payload = {
-      user: {
-        id: user.id,
-        role: user.role,
-        organizationId: user.organizationId
-      }
-    };
-
-    jwt.sign(
-      payload,
-      process.env.JWT_SECRET || 'your-secret-key',
-      { expiresIn: '7d' },
-      (err, token) => {
-        if (err) throw err;
-        res.json({
-          token,
-          user: {
-            id: user.id,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-            role: user.role,
-            organizationId: user.organizationId,
-            affiliateCode: user.affiliateCode,
-            isVerified: user.isVerified
-          }
-        });
-      }
+    const token = jwt.sign(
+      { 
+        organizerId: organizer.id,
+        email: organizer.email 
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: '7d' }
     );
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ message: 'Internal server error' });
+
+    // Remove password from response
+    const organizerData = { ...organizer.toJSON() };
+    delete organizerData.password;
+
+    res.json({
+      success: true,
+      message: 'Login successful',
+      data: {
+        organizer: organizerData,
+        token
+      }
+    });
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Login failed',
+      error: error.message
+    });
   }
 });
 
 // @route   GET /api/auth/me
-// @desc    Get current user
+// @desc    Get current organizer
 // @access  Private
-router.get('/me', auth, async (req, res) => {
+router.get('/me', async (req, res) => {
   try {
-    const user = await User.findByPk(req.user.id, {
-      include: [{
-        model: Organization,
-        as: 'organization',
-        attributes: ['name', 'displayName', 'logo']
-      }]
-    });
-
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-
-    res.json(user);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-});
-
-// @route   POST /api/auth/refresh
-// @desc    Refresh JWT token
-// @access  Private
-router.post('/refresh', auth, async (req, res) => {
-  try {
-    const user = await User.findByPk(req.user.id, { attributes: { exclude: ['password'] } });
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-
-    const payload = {
-      user: {
-        id: user.id,
-        role: user.role,
-        organizationId: user.organizationId
-      }
-    };
-
-    jwt.sign(
-      payload,
-      process.env.JWT_SECRET || 'your-secret-key',
-      { expiresIn: '7d' },
-      (err, token) => {
-        if (err) throw err;
-        res.json({ token });
-      }
-    );
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-});
-
-// @route   POST /api/auth/forgot-password
-// @desc    Send password reset email
-// @access  Public
-router.post('/forgot-password', [
-  body('email', 'Please include a valid email').isEmail().normalizeEmail()
-], async (req, res) => {
-  try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    const { email } = req.body;
-    const user = await User.findOne({ where: { email } });
-
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-
-    // Generate reset token
-    const resetToken = jwt.sign(
-      { userId: user.id },
-      process.env.JWT_SECRET || 'your-secret-key',
-      { expiresIn: '1h' }
-    );
-
-    // In a real application, you would send this via email
-    // For now, we'll just return the token
-    res.json({ 
-      message: 'Password reset email sent',
-      resetToken 
-    });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-});
-
-// @route   POST /api/auth/reset-password
-// @desc    Reset password with token
-// @access  Public
-router.post('/reset-password', [
-  body('token', 'Reset token is required').notEmpty(),
-  body('password', 'Password must be at least 6 characters').isLength({ min: 6 })
-], async (req, res) => {
-  try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    const { token, password } = req.body;
-
-    // Verify token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-secret-key');
-    const user = await User.findByPk(decoded.userId);
-
-    if (!user) {
-      return res.status(400).json({ message: 'Invalid or expired token' });
-    }
-
-    // Update password
-    user.password = password;
-    await user.save();
-
-    res.json({ message: 'Password reset successfully' });
-  } catch (err) {
-    if (err.name === 'JsonWebTokenError') {
-      return res.status(400).json({ message: 'Invalid or expired token' });
-    }
-    if (err.name === 'TokenExpiredError') {
-              return res.status(400).json({ message: 'Token has expired' });
-    }
-    console.error(err.message);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-});
-
-// @route   PUT /api/auth/change-password
-// @desc    Change password
-// @access  Private
-router.put('/change-password', [
-  auth,
-  body('currentPassword', 'Current password is required').exists(),
-  body('newPassword', 'New password must be at least 6 characters').isLength({ min: 6 })
-], async (req, res) => {
-  try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    const { currentPassword, newPassword } = req.body;
-    const user = await User.findByPk(req.user.id);
-
-    // Check current password
-    const isMatch = await user.comparePassword(currentPassword);
-    if (!isMatch) {
-      return res.status(400).json({ message: 'Current password is incorrect' });
-    }
-
-    // Update password
-    user.password = newPassword;
-    await user.save();
-
-    res.json({ message: 'Password changed successfully' });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-});
-
-// @route   POST /api/auth/verify-email
-// @desc    Verify user email
-// @access  Private
-router.post('/verify-email', auth, async (req, res) => {
-  try {
-    const user = await User.findByPk(req.user.id);
+    const token = req.header('Authorization')?.replace('Bearer ', '');
     
-    if (user.isVerified) {
-      return res.status(400).json({ message: 'Email is already verified' });
+    if (!token) {
+      return res.status(401).json({
+        success: false,
+        message: 'No token provided'
+      });
     }
 
-    // In a real application, you would send a verification email
-    // For now, we'll just mark as verified
-    user.isVerified = true;
-    await user.save();
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const organizer = await Organizer.findByPk(decoded.organizerId, {
+      attributes: { exclude: ['password'] }
+    });
 
-    res.json({ message: 'Email verified successfully' });
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ message: 'Internal server error' });
+    if (!organizer) {
+      return res.status(401).json({
+        success: false,
+        message: 'Invalid token'
+      });
+    }
+
+    res.json({
+      success: true,
+      data: organizer
+    });
+  } catch (error) {
+    console.error('Auth error:', error);
+    res.status(401).json({
+      success: false,
+      message: 'Invalid token'
+    });
   }
-});
-
-// @route   POST /api/auth/logout
-// @desc    Logout user (client-side token removal)
-// @access  Private
-router.post('/logout', auth, (req, res) => {
-  res.json({ message: 'Logout successful' });
 });
 
 module.exports = router;

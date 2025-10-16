@@ -14,6 +14,9 @@ dist/
 
 # Environment variables
 .env
+
+# Event CD separate project
+eventcd-backend/
 .env.local
 .env.development.local
 .env.test.local
