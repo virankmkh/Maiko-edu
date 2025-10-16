@@ -2,7 +2,7 @@ const express = require('express');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { Organizer } = require('../models');
+const { Organization } = require('../config/database').models;
 const router = express.Router();
 
 // @route   POST /api/auth/register
@@ -27,11 +27,11 @@ router.post('/register', [
     const { name, email, password, companyName } = req.body;
 
     // Check if organizer already exists
-    const existingOrganizer = await Organizer.findOne({ where: { email } });
-    if (existingOrganizer) {
+    const existingOrganization = await Organization.findOne({ where: { email } });
+    if (existingOrganization) {
       return res.status(400).json({
         success: false,
-        message: 'Organizer with this email already exists'
+        message: 'Organization with this email already exists'
       });
     }
 
@@ -39,33 +39,33 @@ router.post('/register', [
     const saltRounds = 12;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-    // Create organizer
-    const organizer = await Organizer.create({
-      name,
+    // Create organization
+    const organization = await Organization.create({
+      name: companyName || name,
       email,
       password: hashedPassword,
-      companyName: companyName || null
+      description: `Organization created by ${name}`
     });
 
     // Generate JWT token
     const token = jwt.sign(
       { 
-        organizerId: organizer.id,
-        email: organizer.email 
+        organizationId: organization.id,
+        email: organization.email 
       },
       process.env.JWT_SECRET,
       { expiresIn: '7d' }
     );
 
     // Remove password from response
-    const organizerData = { ...organizer.toJSON() };
-    delete organizerData.password;
+    const organizationData = { ...organization.toJSON() };
+    delete organizationData.password;
 
     res.status(201).json({
       success: true,
-      message: 'Organizer registered successfully',
+      message: 'Organization registered successfully',
       data: {
-        organizer: organizerData,
+        organization: organizationData,
         token
       }
     });
@@ -98,9 +98,9 @@ router.post('/login', [
 
     const { email, password } = req.body;
 
-    // Find organizer
-    const organizer = await Organizer.findOne({ where: { email } });
-    if (!organizer) {
+    // Find organization
+    const organization = await Organization.findOne({ where: { email } });
+    if (!organization) {
       return res.status(401).json({
         success: false,
         message: 'Invalid credentials'
@@ -108,7 +108,7 @@ router.post('/login', [
     }
 
     // Check password
-    const isPasswordValid = await bcrypt.compare(password, organizer.password);
+    const isPasswordValid = await bcrypt.compare(password, organization.password);
     if (!isPasswordValid) {
       return res.status(401).json({
         success: false,
@@ -116,8 +116,8 @@ router.post('/login', [
       });
     }
 
-    // Check if organizer is active
-    if (!organizer.isActive) {
+    // Check if organization is active
+    if (!organization.isActive) {
       return res.status(401).json({
         success: false,
         message: 'Account is deactivated'
@@ -127,22 +127,22 @@ router.post('/login', [
     // Generate JWT token
     const token = jwt.sign(
       { 
-        organizerId: organizer.id,
-        email: organizer.email 
+        organizationId: organization.id,
+        email: organization.email 
       },
       process.env.JWT_SECRET,
       { expiresIn: '7d' }
     );
 
     // Remove password from response
-    const organizerData = { ...organizer.toJSON() };
-    delete organizerData.password;
+    const organizationData = { ...organization.toJSON() };
+    delete organizationData.password;
 
     res.json({
       success: true,
       message: 'Login successful',
       data: {
-        organizer: organizerData,
+        organization: organizationData,
         token
       }
     });

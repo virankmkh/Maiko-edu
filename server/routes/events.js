@@ -1,7 +1,7 @@
 const express = require('express');
 const { body, validationResult, query } = require('express-validator');
 const { Op } = require('sequelize');
-const { Event, Organization, Ticket, EventRegistration } = require('../models');
+const { Event, Organization, Ticket, EventRegistration } = require('../config/database').models;
 const router = express.Router();
 
 // @route   GET /api/events
