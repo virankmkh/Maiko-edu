@@ -1,6 +1,7 @@
 const express = require('express');
 const { body, validationResult } = require('express-validator');
-const { Event, Ticket, EventRegistration, User } = require('../config/database');
+const { models } = require('../config/database');
+const { Event, Ticket, EventRegistration, User } = models;
 const auth = require('../middleware/auth');
 const organizerAuth = require('../middleware/organizerAuth');
 const router = express.Router();
